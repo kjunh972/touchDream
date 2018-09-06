@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet 1</name>
+    <events>
+        <event-block sid="871910346347707">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="466015947173365" type="System" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="889149394627793" type="ball" />
+            </actions>
+        </event-block>
+        <event-block sid="943459752592069">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="303596939803097" type="System" />
+            </conditions>
+            <actions>
+                <action id="-22" name="Set angle toward position" sid="791293830005104" type="cannon">
+                    <param id="0" name="X">Mouse.X</param>
+                    <param id="1" name="Y">Mouse.Y</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="465359976082357">
+            <conditions>
+                <condition id="0" name="On click" sid="327910055364177" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="970547145175687" type="cannon">
+                    <param id="0" name="Object">ball</param>
+                    <param id="1" name="Layer">&quot;Ball&quot;</param>
+                    <param id="2" name="Image point">1</param>
+                </action>
+                <action behavior="Physics" id="5" name="Apply impulse at angle" sid="913536740971562" type="ball">
+                    <param id="0" name="Impulse">distance(Self.X, Self.Y, Mouse.X, Mouse.Y) / 20</param>
+                    <param id="1" name="Angle">cannon.Angle</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
