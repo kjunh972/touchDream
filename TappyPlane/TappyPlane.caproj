@@ -10,6 +10,7 @@
     <unique-id>2ucuat6v8is9b</unique-id>
     <saved-with-version>25900</saved-with-version>
     <used-plugins>
+        <plugin author="Scirra" id="Button" version="1">Button</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
         <plugin author="Scirra" id="Text" version="1">Text</plugin>
         <plugin author="Scirra" id="Touch" version="1">Touch</plugin>
@@ -30,6 +31,7 @@
     </window-size>
     <pixel-rounding>0</pixel-rounding>
     <preview-effects>1</preview-effects>
+    <first-layout>Layout 1</first-layout>
     <use-loader-layout>0</use-loader-layout>
     <configuration-settings>
         <prop name="Clear background">Yes</prop>
@@ -60,6 +62,9 @@
             <behaviors>
                 <behavior-type name="Platform" sid="242268509583113">
                     <behavior id="Platform" />
+                </behavior-type>
+                <behavior-type name="Rotate" sid="208551750296785">
+                    <behavior id="Rotate" />
                 </behavior-type>
             </behaviors>
             <animation-folder>
@@ -240,6 +245,15 @@
             </animation-folder>
         </object-type>
         <object-type name="Text" sid="982039866746633">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="GameOver" sid="720250894799540">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Button" sid="714372767579786">
+            <plugin id="Button" />
+        </object-type>
+        <object-type name="highScore" sid="982446200099296">
             <plugin id="Text" />
         </object-type>
     </object-folder>
