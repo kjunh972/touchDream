@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet 1</name>
+    <events>
+        <variable constant="0" name="nextGround" sid="144126852088036" static="0" type="number">0</variable>
+        <variable constant="0" name="MinScroll" sid="650605571748947" static="0" type="number">999</variable>
+        <event-block sid="796084704355763">
+            <conditions>
+                <condition behavior="Platform" id="9" name="On landed" sid="922303388038300" type="player" />
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="709506975377686" type="player">
+                    <param id="0" name="Animation">&quot;Default&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="-16" name="Wait" sid="120323959549959" type="System">
+                    <param id="0" name="Seconds">0.2</param>
+                </action>
+                <action behavior="Platform" id="7" name="Simulate control" sid="450319898613056" type="player">
+                    <param id="0" name="Control">2</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="790158558045682">
+            <conditions>
+                <condition behavior="Platform" id="5" name="On jump" sid="687508477805498" type="player" />
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="117319556954204" type="player">
+                    <param id="0" name="Animation">&quot;jump&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block any="1" sid="865361312638602">
+            <conditions>
+                <condition behavior="Platform" id="4" name="Is falling" sid="925895999655607" type="player" />
+                <condition behavior="Platform" id="3" name="Is jumping" sid="339409966165522" type="player" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="230970723500961">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="893516154257709" type="Keyboard">
+                            <param id="0" name="Key">39</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="610787109998803" type="player">
+                            <param id="0" name="Control">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="342072436793785">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="800795822139388" type="Keyboard">
+                            <param id="0" name="Key">37</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="933920006205540" type="player">
+                            <param id="0" name="Control">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="548809283079367">
+            <conditions>
+                <condition id="-2" name="Compare Y" sid="537478692714761" type="player">
+                    <param id="0" name="Comparison">2</param>
+                    <param id="1" name="Y co-ordinate">MinScroll</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="490549328471320" type="System">
+                    <param id="0" name="Variable">MinScroll</param>
+                    <param id="1" name="Value">player.Y</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="560585670894417">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="996506167991550" type="System">
+                            <param id="0" name="Variable">nextGround</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">ViewportTop(&quot;Game&quot;)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="611255587615343" type="System">
+                            <param id="0" name="Object to create">ground_grass</param>
+                            <param id="1" name="Layer">&quot;ground&quot;</param>
+                            <param id="2" name="X">random(20,LayoutWidth-20)</param>
+                            <param id="3" name="Y">ViewportTop(&quot;Game&quot;)</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="869547450551822" type="System">
+                            <param id="0" name="Variable">nextGround</param>
+                            <param id="1" name="Value">ViewportTop(&quot;Game&quot;) - random(100,200)</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="104580981083535">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="555163272775263" type="System" />
+            </conditions>
+            <actions>
+                <action id="-6" name="Scroll to Y" sid="937355631441286" type="System">
+                    <param id="0" name="Y">MinScroll</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="162000784562428">
+            <conditions>
+                <condition id="-3" inverted="1" name="Is on-screen" sid="618985535895051" type="ground_grass" />
+            </conditions>
+            <actions />
+        </event-block>
+    </events>
+</c2eventsheet>
