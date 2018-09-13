@@ -116,8 +116,87 @@
         <event-block sid="162000784562428">
             <conditions>
                 <condition id="-3" inverted="1" name="Is on-screen" sid="618985535895051" type="ground_grass" />
+                <condition id="-2" name="Compare Y" sid="798817933949757" type="ground_grass">
+                    <param id="0" name="Comparison">4</param>
+                    <param id="1" name="Y co-ordinate">ViewportBottom(&quot;Game&quot;)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="203351198619802" type="ground_grass" />
+            </actions>
+        </event-block>
+        <event-block sid="593021827732347">
+            <conditions>
+                <condition id="-1" name="Compare X" sid="178836828596949" type="player">
+                    <param id="0" name="Comparison">4</param>
+                    <param id="1" name="X co-ordinate">LayoutWidth+50</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-1" name="Set X" sid="835293129901374" type="player">
+                    <param id="0" name="X">-40</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="844849501937757">
+            <conditions>
+                <condition id="-1" name="Compare X" sid="399144861991292" type="player">
+                    <param id="0" name="Comparison">2</param>
+                    <param id="1" name="X co-ordinate">-50</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-1" name="Set X" sid="441017982656984" type="player">
+                    <param id="0" name="X">LayoutWidth+40</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="549766603237415">
+            <conditions>
+                <condition id="-18" name="On created" sid="922204292659192" type="ground_grass" />
             </conditions>
             <actions />
+            <sub-events>
+                <variable constant="0" name="Rand" sid="598320727650201" static="0" type="number">0</variable>
+                <event-block sid="496010111945144">
+                    <conditions>
+                        <condition id="-4" name="Trigger once while true" sid="616074782105290" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="958146896954669" type="System">
+                            <param id="0" name="Variable">Rand</param>
+                            <param id="1" name="Value">round(random(0,4))</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="580004503952096">
+                    <conditions>
+                        <condition id="-10" name="For" sid="102658719430095" type="System">
+                            <param id="0" name="Name">&quot;i&quot;</param>
+                            <param id="1" name="Start index">1</param>
+                            <param id="2" name="End index">3</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="608599726068138" type="System">
+                            <param id="0" name="Object to create">gold_</param>
+                            <param id="1" name="Layer">&quot;Game&quot;</param>
+                            <param id="2" name="X">ground_grass.X</param>
+                            <param id="3" name="Y">ground_grass.Y-60*loopindex(&quot;i&quot;)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="486444378776959">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="993425822266678" type="System">
+                            <param id="0" name="Variable">Rand</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                </event-block>
+            </sub-events>
         </event-block>
     </events>
 </c2eventsheet>
