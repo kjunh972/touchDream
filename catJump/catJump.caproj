@@ -12,8 +12,11 @@
     <used-plugins>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Text" version="1">Text</plugin>
     </used-plugins>
     <used-behaviors>
+        <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
+        <behavior author="Scirra" id="Fade" version="1">Fade</behavior>
         <behavior author="Scirra" id="Platform" version="1">Platform</behavior>
         <behavior author="Scirra" id="jumpthru" version="1">Jump-thru</behavior>
     </used-behaviors>
@@ -56,10 +59,17 @@
                 <behavior-type name="Jumpthru" sid="836616553961467">
                     <behavior id="jumpthru" />
                 </behavior-type>
+                <behavior-type name="Fade" sid="768104951618346">
+                    <behavior id="Fade" />
+                </behavior-type>
+                <behavior-type name="Bullet" sid="364288404925094">
+                    <behavior id="Bullet" />
+                </behavior-type>
             </behaviors>
             <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="345210984036081" speed="5">
+                <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="345210984036081" speed="0">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\user\Desktop\jumper-assets\Sprites\Environment\ground_grass.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\user\Desktop\jumper-assets\Sprites\Environment\ground_grass_broken.png" />
                 </animation>
             </animation-folder>
         </object-type>
@@ -132,6 +142,27 @@
                             <point x="0.444444" y="1" />
                             <point x="0.111111" y="0.979592" />
                             <point x="0" y="0.489796" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="score" sid="974257493206604">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="gameover" sid="180618845635304">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="643479908801641" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\user\Desktop\jumper-assets\Sprites\Other\gameover.png">
+                        <collision-poly>
+                            <point x="0.0229592" y="0.136364" />
+                            <point x="0.5" y="0.0454545" />
+                            <point x="0.982143" y="0.106061" />
+                            <point x="0.989796" y="0.939394" />
+                            <point x="0.5" y="0.969697" />
+                            <point x="0.0229592" y="0.863636" />
+                            <point x="0" y="0.5" />
                         </collision-poly>
                     </frame>
                 </animation>

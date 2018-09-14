@@ -3,6 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Event sheet 1</name>
     <events>
+        <variable constant="0" name="score" sid="982773272990166" static="0" type="number">0</variable>
         <variable constant="0" name="nextGround" sid="144126852088036" static="0" type="number">0</variable>
         <variable constant="0" name="MinScroll" sid="650605571748947" static="0" type="number">999</variable>
         <event-block sid="796084704355763">
@@ -21,6 +22,37 @@
                     <param id="0" name="Control">2</param>
                 </action>
             </actions>
+            <sub-events>
+                <event-block sid="998608121275896">
+                    <conditions>
+                        <condition id="9" name="Is overlapping at offset" sid="284503774618390" type="player">
+                            <param id="0" name="Object">ground_grass</param>
+                            <param id="1" name="Offset X">0</param>
+                            <param id="2" name="Offset Y">50</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="977852266335020">
+                            <conditions>
+                                <condition id="3" name="Compare frame" sid="218700509151104" type="ground_grass">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Number">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Fade" id="1" name="Start fade" sid="222555650252513" type="ground_grass" />
+                                <action behavior="Bullet" id="5" name="Set enabled" sid="748131484833454" type="ground_grass">
+                                    <param id="0" name="State">1</param>
+                                </action>
+                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="380448175140007" type="ground_grass">
+                                    <param id="0" name="Angle">90</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
         </event-block>
         <event-block sid="790158558045682">
             <conditions>
@@ -125,6 +157,18 @@
                 <action id="-9" name="Destroy" sid="203351198619802" type="ground_grass" />
             </actions>
         </event-block>
+        <event-block sid="439549434610346">
+            <conditions>
+                <condition id="-3" inverted="1" name="Is on-screen" sid="496607747958013" type="gold_" />
+                <condition id="-2" name="Compare Y" sid="339383499881801" type="gold_">
+                    <param id="0" name="Comparison">4</param>
+                    <param id="1" name="Y co-ordinate">ViewportBottom(&quot;Game&quot;)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="810288394989066" type="gold_" />
+            </actions>
+        </event-block>
         <event-block sid="593021827732347">
             <conditions>
                 <condition id="-1" name="Compare X" sid="178836828596949" type="player">
@@ -154,6 +198,9 @@
         <event-block sid="549766603237415">
             <conditions>
                 <condition id="-18" name="On created" sid="922204292659192" type="ground_grass" />
+                <condition id="-14" inverted="1" name="Pick by unique ID" sid="685909592272939" type="ground_grass">
+                    <param id="0" name="Unique ID">3</param>
+                </condition>
             </conditions>
             <actions />
             <sub-events>
@@ -169,34 +216,158 @@
                         </action>
                     </actions>
                 </event-block>
-                <event-block sid="580004503952096">
-                    <conditions>
-                        <condition id="-10" name="For" sid="102658719430095" type="System">
-                            <param id="0" name="Name">&quot;i&quot;</param>
-                            <param id="1" name="Start index">1</param>
-                            <param id="2" name="End index">3</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="-3" name="Create object" sid="608599726068138" type="System">
-                            <param id="0" name="Object to create">gold_</param>
-                            <param id="1" name="Layer">&quot;Game&quot;</param>
-                            <param id="2" name="X">ground_grass.X</param>
-                            <param id="3" name="Y">ground_grass.Y-60*loopindex(&quot;i&quot;)</param>
-                        </action>
-                    </actions>
-                </event-block>
                 <event-block sid="486444378776959">
                     <conditions>
                         <condition id="-14" name="Compare variable" sid="993425822266678" type="System">
                             <param id="0" name="Variable">Rand</param>
                             <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">0</param>
+                            <param id="2" name="Value">3</param>
                         </condition>
                     </conditions>
                     <actions />
+                    <sub-events>
+                        <event-block sid="580004503952096">
+                            <conditions>
+                                <condition id="-10" name="For" sid="102658719430095" type="System">
+                                    <param id="0" name="Name">&quot;i&quot;</param>
+                                    <param id="1" name="Start index">1</param>
+                                    <param id="2" name="End index">3</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="608599726068138" type="System">
+                                    <param id="0" name="Object to create">gold_</param>
+                                    <param id="1" name="Layer">&quot;Game&quot;</param>
+                                    <param id="2" name="X">ground_grass.X</param>
+                                    <param id="3" name="Y">ground_grass.Y-60*loopindex(&quot;i&quot;)</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="570811863082976" type="gold_">
+                                    <param id="0" name="Frame number">loopindex(&quot;i&quot;)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="798752163003895">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="997762993074294" type="System">
+                            <param id="0" name="Variable">Rand</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">2</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="715593454968968">
+                            <conditions>
+                                <condition id="-10" name="For" sid="773773614858145" type="System">
+                                    <param id="0" name="Name">&quot;i&quot;</param>
+                                    <param id="1" name="Start index">1</param>
+                                    <param id="2" name="End index">2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="669580092958849" type="System">
+                                    <param id="0" name="Object to create">gold_</param>
+                                    <param id="1" name="Layer">&quot;Game&quot;</param>
+                                    <param id="2" name="X">ground_grass.X</param>
+                                    <param id="3" name="Y">ground_grass.Y-60*loopindex(&quot;i&quot;)</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="421662614000180" type="gold_">
+                                    <param id="0" name="Frame number">loopindex(&quot;i&quot;)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="292078625602838">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="731349567059276" type="System">
+                            <param id="0" name="Variable">Rand</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="828717478355628">
+                            <conditions>
+                                <condition id="-10" name="For" sid="181530336597700" type="System">
+                                    <param id="0" name="Name">&quot;i&quot;</param>
+                                    <param id="1" name="Start index">1</param>
+                                    <param id="2" name="End index">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="660191914926775" type="System">
+                                    <param id="0" name="Object to create">gold_</param>
+                                    <param id="1" name="Layer">&quot;Game&quot;</param>
+                                    <param id="2" name="X">ground_grass.X</param>
+                                    <param id="3" name="Y">ground_grass.Y-60*loopindex(&quot;i&quot;)</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="585968715403739" type="gold_">
+                                    <param id="0" name="Frame number">loopindex(&quot;i&quot;)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="854444848254384">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="814751749074477" type="System">
+                            <param id="0" name="First value">random(10)</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Second value">3</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="361255528932248" type="ground_grass">
+                            <param id="0" name="Frame number">1</param>
+                        </action>
+                    </actions>
                 </event-block>
             </sub-events>
+        </event-block>
+        <event-block sid="562973538502130">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="758046030577312" type="player">
+                    <param id="0" name="Object">gold_</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="313017268112484" type="gold_" />
+                <action id="-10" name="Add to" sid="595532150261442" type="System">
+                    <param id="0" name="Variable">score</param>
+                    <param id="1" name="Value">10</param>
+                </action>
+                <action id="0" name="Set text" sid="410235707821783" type="score">
+                    <param id="0" name="Text">&quot;Score : &quot;&amp;score</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="358792477509152">
+            <conditions>
+                <condition id="-2" name="Compare Y" sid="702117079388636" type="player">
+                    <param id="0" name="Comparison">4</param>
+                    <param id="1" name="Y co-ordinate">ViewportBottom(&quot;Game&quot;)</param>
+                </condition>
+                <condition id="-3" name="Is on-screen" sid="885874851735775" type="player" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="288633112235682" type="player" />
+                <action id="-16" name="Wait" sid="392294741712669" type="System">
+                    <param id="0" name="Seconds">0.5</param>
+                </action>
+                <action id="-3" name="Set position" sid="458768637450326" type="gameover">
+                    <param id="0" name="X">242</param>
+                    <param id="1" name="Y">349</param>
+                </action>
+                <action id="-16" name="Wait" sid="319550921031706" type="System">
+                    <param id="0" name="Seconds">1</param>
+                </action>
+                <action id="-21" name="Reset global variables" sid="618566074134820" type="System" />
+                <action id="-26" name="Restart layout" sid="359273538653028" type="System" />
+            </actions>
         </event-block>
     </events>
 </c2eventsheet>
