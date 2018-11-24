@@ -1,0 +1,405 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>GameOver Sheet</name>
+    <events>
+        <event-block sid="6290377586098921">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="2235003961636936" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Play" sid="7064484939499875" type="Audio">
+                    <param id="0" name="Audio file">menu-guitar</param>
+                    <param id="2" name="Loop">1</param>
+                    <param id="3" name="Volume">-12</param>
+                    <param id="1" name="Tag (optional)">&quot;sfx&quot;</param>
+                </action>
+                <action id="-9" name="Set value" sid="6532991307459203" type="System">
+                    <param id="0" name="Variable">gold</param>
+                    <param id="1" name="Value">int(WebStorage.LocalValue(&quot;gold&quot;))</param>
+                </action>
+                <action id="-16" name="Set opacity" sid="8804166351224593" type="FadeInBg">
+                    <param id="0" name="Opacity">100</param>
+                </action>
+                <action id="0" name="Set text" sid="3174355974864098" type="latestdistance">
+                    <param id="0" name="Text">waypass</param>
+                </action>
+                <action id="0" name="Set text" sid="3564073192236323" type="bestdistance">
+                    <param id="0" name="Text">bestwaypass</param>
+                </action>
+                <action id="0" name="Set text" sid="9698159399033547" type="totalcoins">
+                    <param id="0" name="Text">gold</param>
+                </action>
+                <action behavior="8Direction2" id="4" name="Set max speed" sid="9370145558667057" type="roads">
+                    <param id="0" name="Max Speed">600</param>
+                </action>
+                <action id="0" name="Add product ID" sid="5086894768773167" type="IAP">
+                    <param id="0" name="Product ID">&quot;noads&quot;</param>
+                </action>
+                <action id="-15" name="Set visible" sid="5547415104712821" type="tomenu">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="5097082954873118">
+                    <conditions>
+                        <condition id="7" name="Compare key value (as number)" sid="7697813514390349" type="WebStorage">
+                            <param id="0" name="Key">&quot;roads&quot;</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="8565683118991547" type="RoadCity">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="299589535975755" type="RoadVillage">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="1831225195426977" type="RoadBridge">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="3905073244182613" type="RoadDesert">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="477556987539419">
+                    <conditions>
+                        <condition id="7" name="Compare key value (as number)" sid="9220676648075767" type="WebStorage">
+                            <param id="0" name="Key">&quot;roads&quot;</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="2557362229648949" type="RoadVillage">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="6018358886618992" type="RoadCity">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="4721870835021143" type="RoadBridge">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="969547076329552" type="RoadDesert">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="4142522917763854">
+                    <conditions>
+                        <condition id="7" name="Compare key value (as number)" sid="4205443211099484" type="WebStorage">
+                            <param id="0" name="Key">&quot;roads&quot;</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="7883539888569765" type="RoadBridge">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="9211000290499044" type="RoadVillage">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="9615244463695771" type="RoadCity">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="6614279992531794" type="RoadDesert">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="7188672758102884">
+                    <conditions>
+                        <condition id="7" name="Compare key value (as number)" sid="1981243508511696" type="WebStorage">
+                            <param id="0" name="Key">&quot;roads&quot;</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">3</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="2650748985905003" type="RoadDesert">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="8363325455831663" type="RoadBridge">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="9714859906069238" type="RoadVillage">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="8354029975333829" type="RoadCity">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="535597727831449">
+                    <conditions>
+                        <condition id="3" name="Local key exists" sid="5160714851754614" type="WebStorage">
+                            <param id="0" name="Key">&quot;sound&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="10" name="Set master volume" sid="9487695431875642" type="Audio">
+                            <param id="0" name="dB">-100</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="7615493260347912" type="sounds">
+                            <param id="0" name="Frame number">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="9926723515464699">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="942504670748657" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="10" name="Set master volume" sid="5781783244983462" type="Audio">
+                            <param id="0" name="dB">0</param>
+                        </action>
+                        <action id="5" name="Set frame" sid="2832596633245845" type="sounds">
+                            <param id="0" name="Frame number">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="4768931113360755">
+            <conditions>
+                <condition id="-2" name="Compare Y" sid="4093660115385325" type="roads">
+                    <param id="0" name="Comparison">5</param>
+                    <param id="1" name="Y co-ordinate">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Set Y" sid="9815666834994876" type="roads">
+                    <param id="0" name="Y">-1920</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="6061772344620654">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="813007052781391" type="System" />
+            </conditions>
+            <actions>
+                <action behavior="8Direction2" id="7" name="Simulate control" sid="2615927991843974" type="roads">
+                    <param id="0" name="Control">3</param>
+                </action>
+                <action id="-16" name="Set opacity" sid="3090095644728712" type="FadeInBg">
+                    <param id="0" name="Opacity">FadeInBg.Opacity-(dt*100)</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" sid="7196384298216658" title="UI">
+            <sub-events>
+                <event-block sid="394301254674377">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="4557341753848061" type="Touch">
+                            <param id="0" name="Object">restart</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="33" name="Stop all" sid="7044307856721318" type="Audio" />
+                        <action id="-2" name="Go to layout" sid="9289264487787744" type="System">
+                            <param id="0" name="Layout">Game</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="2805715725810468">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="1382157715099418" type="Touch">
+                            <param id="0" name="Object">selectroad</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" sid="9646878017615231" type="System">
+                            <param id="0" name="Layout">Roads</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="3260687946869965">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="5833486119310376" type="Touch">
+                            <param id="0" name="Object">togarage</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-16" name="Wait" sid="9518529813922571" type="System">
+                            <param id="0" name="Seconds">0.3</param>
+                        </action>
+                        <action id="-2" name="Go to layout" sid="4177372817701803" type="System">
+                            <param id="0" name="Layout">Garage</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="3311771384163239">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="9858190828718921" type="Touch">
+                            <param id="0" name="Object">noads</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="3354570244865211">
+                            <conditions>
+                                <condition id="7" name="Is store available" sid="5292051688265103" type="IAP" />
+                            </conditions>
+                            <actions>
+                                <action id="1" name="Purchase product" sid="9372950465933564" type="IAP">
+                                    <param id="0" name="Product ID">&quot;noads&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="870448767082386">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="231497581030995" type="Touch">
+                            <param id="0" name="Object">leaderboard</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="534172971842298">
+                            <conditions>
+                                <condition id="3" name="Is signed in" sid="920384312697253" type="GooglePlay" />
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Request hi-scores" sid="620735495460869" type="GooglePlay">
+                                    <param id="0" name="Leaderboard ID">&quot;CgkIwemdtrEdEAIQAQ&quot;</param>
+                                    <param id="1" name="Collection">0</param>
+                                    <param id="2" name="Time span">1</param>
+                                    <param id="3" name="Results">25</param>
+                                    <param id="4" name="Type">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="7701753082494749">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="2610639620953821" type="Touch">
+                            <param id="0" name="Object">rateus</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="8" name="Open URL in new window" sid="1827485676592646" type="Browser">
+                            <param id="0" name="URL">&quot;market://details?id=co.artheads.deadlyrace&amp;write_review=true&quot;</param>
+                            <param id="1" name="Tag">&quot;NewWindow&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="7645566286328687">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="3591450772197688" type="Touch">
+                            <param id="0" name="Object">facebook</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="8" name="Open URL in new window" sid="1300093318291461" type="Browser">
+                            <param id="0" name="URL">&quot;https://facebook.com&quot;</param>
+                            <param id="1" name="Tag">&quot;NewWindow&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="4862393167943606">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="1546669888228083" type="Touch">
+                            <param id="0" name="Object">twitter</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="8" name="Open URL in new window" sid="5629602602188789" type="Browser">
+                            <param id="0" name="URL">&quot;https://twitter.com/intent/tweet?source=webclient&amp;text=My best distance in Deadly Race is &quot;&amp; WebStorage.LocalValue(&quot;bestway&quot;) &amp; &quot; km. Can you get more? Play for free now! &quot; &amp; &quot;%23android, %23race, %23game, %23racing, %23mobile&quot;</param>
+                            <param id="1" name="Tag">&quot;NewWindow&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="9370038257046837">
+                    <conditions>
+                        <condition id="3" name="Compare frame" sid="4379958498653667" type="sounds">
+                            <param id="0" name="Comparison">0</param>
+                            <param id="1" name="Number">0</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="2678728168297631">
+                            <conditions>
+                                <condition id="3" name="On touched object" sid="184733518860722" type="Touch">
+                                    <param id="0" name="Object">sounds</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="10" name="Set master volume" sid="4082564954628243" type="Audio">
+                                    <param id="0" name="dB">-100</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="3062479568635226" type="System">
+                                    <param id="0" name="Seconds">0.1</param>
+                                </action>
+                                <action id="0" name="Set local value" sid="2302426775730517" type="WebStorage">
+                                    <param id="0" name="Key">&quot;sound&quot;</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="9541513430478579" type="sounds">
+                                    <param id="0" name="Frame number">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="5319538200156343">
+                    <conditions>
+                        <condition id="3" name="Compare frame" sid="3652492327721292" type="sounds">
+                            <param id="0" name="Comparison">0</param>
+                            <param id="1" name="Number">1</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="2350174173852868">
+                            <conditions>
+                                <condition id="3" name="On touched object" sid="8391837513923033" type="Touch">
+                                    <param id="0" name="Object">sounds</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="10" name="Set master volume" sid="781204016074024" type="Audio">
+                                    <param id="0" name="dB">0</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="8990631468183619" type="System">
+                                    <param id="0" name="Seconds">0.1</param>
+                                </action>
+                                <action id="2" name="Remove local value" sid="9296169533578215" type="WebStorage">
+                                    <param id="0" name="Key">&quot;sound&quot;</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="762930761718094" type="sounds">
+                                    <param id="0" name="Frame number">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="7714128441117739">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="8080552232653856" type="Touch">
+                            <param id="0" name="Object">tomenu</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Go to layout" sid="9480105952142991" type="System">
+                            <param id="0" name="Layout">Menu</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="7346773782241054">
+                    <conditions>
+                        <condition id="11" name="On menu button" sid="9481194400176003" type="Browser" />
+                    </conditions>
+                    <actions>
+                        <action id="1" name="Close" sid="9643597330002554" type="Browser" />
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

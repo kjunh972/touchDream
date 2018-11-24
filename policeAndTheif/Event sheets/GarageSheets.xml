@@ -1,0 +1,1464 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>GarageSheets</name>
+    <events>
+        <variable constant="0" name="buygold" sid="9930983900269677" static="0" type="number">0</variable>
+        <event-block sid="2419550783179473">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="5630582303374592" type="System" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="9358399338246882" type="System">
+                    <param id="0" name="Variable">gold</param>
+                    <param id="1" name="Value">int(WebStorage.LocalValue(&quot;gold&quot;))</param>
+                </action>
+                <action id="-16" name="Set opacity" sid="5786540803627772" type="FadeInBg">
+                    <param id="0" name="Opacity">100</param>
+                </action>
+                <action id="5" name="Set frame" sid="1457548719044352" type="garage_title">
+                    <param id="0" name="Frame number">0</param>
+                </action>
+                <action id="2" name="Hide banner ad" sid="3634601151114155" type="AdmobAds" />
+                <action behavior="8Direction2" id="4" name="Set max speed" sid="8040281765674363" type="roads">
+                    <param id="0" name="Max Speed">600</param>
+                </action>
+                <action id="0" name="Add product ID" sid="9661867023424744" type="IAP">
+                    <param id="0" name="Product ID">&quot;1000,5000,10000&quot;</param>
+                </action>
+                <action behavior="Pin2" id="0" name="Pin to object" sid="3180953482600347" type="items">
+                    <param id="0" name="Pin to">scrollpane</param>
+                    <param id="1" name="Mode">1</param>
+                </action>
+                <action behavior="Pin" id="0" name="Pin to object" sid="8805061756230766" type="buygold">
+                    <param id="0" name="Pin to">buygoldbg</param>
+                    <param id="1" name="Mode">1</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-group description="" sid="5514013876092149" title="Road">
+                    <sub-events>
+                        <event-block sid="4926077353516156">
+                            <conditions>
+                                <condition id="7" name="Compare key value (as number)" sid="6398671025871005" type="WebStorage">
+                                    <param id="0" name="Key">&quot;roads&quot;</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="7953623676697755" type="RoadCity">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="8400297414211412" type="RoadVillage">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="4222427895927417" type="RoadBridge">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="9636924086901645" type="RoadDesert">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="7270994136571457">
+                            <conditions>
+                                <condition id="7" name="Compare key value (as number)" sid="1878080639893739" type="WebStorage">
+                                    <param id="0" name="Key">&quot;roads&quot;</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="9892322909801974" type="RoadVillage">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="5355631342689169" type="RoadCity">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="8013291510583453" type="RoadBridge">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="1286792162467608" type="RoadDesert">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="9316130861492046">
+                            <conditions>
+                                <condition id="7" name="Compare key value (as number)" sid="8141859792263828" type="WebStorage">
+                                    <param id="0" name="Key">&quot;roads&quot;</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="1025509536132221" type="RoadBridge">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="5951755565806698" type="RoadVillage">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="8671570529094339" type="RoadCity">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="5860257808085858" type="RoadDesert">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="6633543469102553">
+                            <conditions>
+                                <condition id="7" name="Compare key value (as number)" sid="7672416956646354" type="WebStorage">
+                                    <param id="0" name="Key">&quot;roads&quot;</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">3</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="1176773268216173" type="RoadDesert">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="2316635481492082" type="RoadBridge">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="3576971679891364" type="RoadVillage">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="6220388548391362" type="RoadCity">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="3879444527436208" title="Item Checking">
+                    <sub-events>
+                        <event-block any="1" sid="5920193634533255">
+                            <conditions>
+                                <condition id="3" name="Local key exists" sid="4462193305685274" type="WebStorage">
+                                    <param id="0" name="Key">&quot;muscle&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Set frame" sid="213434671908929" type="musclecar">
+                                    <param id="0" name="Frame number">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="9411090736589048">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="6848261295218209" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Set frame" sid="8619272271214659" type="musclecar">
+                                    <param id="0" name="Frame number">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block any="1" sid="9498940783521676">
+                            <conditions>
+                                <condition id="3" name="Local key exists" sid="4589661568064169" type="WebStorage">
+                                    <param id="0" name="Key">&quot;monster&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Set frame" sid="6893436171009109" type="monstercar">
+                                    <param id="0" name="Frame number">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="5800770059571178">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="2764124995200136" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Set frame" sid="4396111091880002" type="monstercar">
+                                    <param id="0" name="Frame number">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block any="1" sid="1648564140289057">
+                            <conditions>
+                                <condition id="3" name="Local key exists" sid="3069181630506815" type="WebStorage">
+                                    <param id="0" name="Key">&quot;bolid&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Set frame" sid="3811606228525811" type="bolid">
+                                    <param id="0" name="Frame number">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="8920768786635343">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="9244075625550178" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Set frame" sid="9694945193952045" type="bolid">
+                                    <param id="0" name="Frame number">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block any="1" sid="6266019357112009">
+                            <conditions>
+                                <condition id="3" name="Local key exists" sid="1495407198051762" type="WebStorage">
+                                    <param id="0" name="Key">&quot;f1&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Set frame" sid="7973191756353806" type="f1">
+                                    <param id="0" name="Frame number">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="532001002999857">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="6782641464237707" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Set frame" sid="2834025767321933" type="f1">
+                                    <param id="0" name="Frame number">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block any="1" sid="6372106591239771">
+                            <conditions>
+                                <condition id="3" name="Local key exists" sid="1414590577646678" type="WebStorage">
+                                    <param id="0" name="Key">&quot;cabri&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Set frame" sid="1899495403317972" type="cabri">
+                                    <param id="0" name="Frame number">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="6963393930973903">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="6950861912748331" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Set frame" sid="6396138310509179" type="cabri">
+                                    <param id="0" name="Frame number">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block any="1" sid="6670285480052223">
+                            <conditions>
+                                <condition id="3" name="Local key exists" sid="9495730941633398" type="WebStorage">
+                                    <param id="0" name="Key">&quot;mini&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Set frame" sid="8715097733458759" type="mini">
+                                    <param id="0" name="Frame number">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="815908830455003">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="4964646535934277" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Set frame" sid="8200395068163947" type="mini">
+                                    <param id="0" name="Frame number">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block any="1" sid="9215668872132045">
+                            <conditions>
+                                <condition id="3" name="Local key exists" sid="1829574250822247" type="WebStorage">
+                                    <param id="0" name="Key">&quot;tank&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Set frame" sid="3342197929858254" type="tank">
+                                    <param id="0" name="Frame number">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="4633112613224643">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="3960181348980685" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Set frame" sid="7916172902525882" type="tank">
+                                    <param id="0" name="Frame number">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block any="1" sid="261001566645724">
+                            <conditions>
+                                <condition id="3" name="Local key exists" sid="9548583575319088" type="WebStorage">
+                                    <param id="0" name="Key">&quot;jeep&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Set frame" sid="832250501968635" type="jeep">
+                                    <param id="0" name="Frame number">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="6624365172700607">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="8232737713968418" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Set frame" sid="3932920184979175" type="jeep">
+                                    <param id="0" name="Frame number">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block any="1" sid="4327020250396036">
+                            <conditions>
+                                <condition id="3" name="Local key exists" sid="8567476715160419" type="WebStorage">
+                                    <param id="0" name="Key">&quot;hotrod&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Set frame" sid="6342946383998863" type="hotrod">
+                                    <param id="0" name="Frame number">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="6691185618190057">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="7915491220908666" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Set frame" sid="5155992143256991" type="hotrod">
+                                    <param id="0" name="Frame number">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+            </sub-events>
+        </event-block>
+        <event-block sid="333588681541899">
+            <conditions>
+                <condition id="-2" name="Compare Y" sid="7322845692217108" type="roads">
+                    <param id="0" name="Comparison">5</param>
+                    <param id="1" name="Y co-ordinate">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Set Y" sid="2923429040995558" type="roads">
+                    <param id="0" name="Y">-1920</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="34083165413472">
+            <conditions>
+                <condition behavior="DragDrop" id="1" name="On drag start" sid="1744221272407921" type="scrollpane" />
+                <condition id="4" inverted="1" name="Is touching object" sid="1389490326969472" type="Touch">
+                    <param id="0" name="Object">garagewin</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="DragDrop" id="1" name="Drop" sid="820039952189645" type="scrollpane" />
+            </actions>
+        </event-block>
+        <event-block any="1" sid="1272154311591404">
+            <conditions>
+                <condition behavior="DragDrop" id="0" name="Is dragging" sid="2589789941888712" type="scrollpane" />
+                <condition behavior="DragDrop" id="2" name="On drop" sid="6310033767551097" type="scrollpane" />
+            </conditions>
+            <actions>
+                <action id="-2" name="Set Y" sid="1602143181461816" type="scrollpane">
+                    <param id="0" name="Y">clamp(self.Y, garagewin.BBoxBottom-Self.Height, garagewin.BBoxTop)</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7711502025505919">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="6484085349467394" type="System" />
+            </conditions>
+            <actions>
+                <action id="-16" name="Set opacity" sid="1987981963426532" type="FadeInBg">
+                    <param id="0" name="Opacity">FadeInBg.Opacity-(dt*100)</param>
+                </action>
+                <action behavior="8Direction2" id="7" name="Simulate control" sid="9553369447940845" type="roads">
+                    <param id="0" name="Control">3</param>
+                </action>
+                <action id="-10" name="Set value" sid="4560407099679022" type="scroller">
+                    <param id="0" name="Instance variable">pos</param>
+                    <param id="1" name="Value">(garagewin.Y-scrollpane.Y)/(scrollpane.Height-garagewin.Height)</param>
+                </action>
+                <action id="-2" name="Set Y" sid="9818860339157436" type="scroller">
+                    <param id="0" name="Y">garagewin.Y+(garagewin.Height-self.Height)*self.pos</param>
+                </action>
+                <action id="0" name="Set text" sid="9960065968774752" type="goldfont">
+                    <param id="0" name="Text">gold</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" sid="9811236205201127" title="Items">
+            <sub-events>
+                <event-block sid="1302676791681496">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="5703356093287132" type="Touch">
+                            <param id="0" name="Object">streetcar</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set local value" sid="7033168231886499" type="WebStorage">
+                            <param id="0" name="Key">&quot;car&quot;</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-2" name="Go to layout" sid="7083758817444809" type="System">
+                            <param id="0" name="Layout">Game</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="4743681445188083">
+                    <conditions>
+                        <condition id="17" name="On tap object" sid="5929853560988123" type="Touch">
+                            <param id="0" name="Object">jeep</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="9212427850971121">
+                            <conditions>
+                                <condition id="3" name="Compare frame" sid="8639665135124516" type="jeep">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Number">0</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="2548791179024347">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="7406269544951874" type="System">
+                                            <param id="0" name="Variable">gold</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Value">100</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Set local value" sid="9798446953526878" type="WebStorage">
+                                            <param id="0" name="Key">&quot;jeep&quot;</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="0" name="Play" sid="2714148770772027" type="Audio">
+                                            <param id="0" name="Audio file">newcar</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">-15</param>
+                                            <param id="1" name="Tag (optional)">&quot;sfx&quot;</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="2038873993952039" type="System">
+                                            <param id="0" name="Seconds">0.3</param>
+                                        </action>
+                                        <action id="5" name="Set frame" sid="8921832422859025" type="jeep">
+                                            <param id="0" name="Frame number">1</param>
+                                        </action>
+                                        <action id="-11" name="Subtract from" sid="9309848773646811" type="System">
+                                            <param id="0" name="Variable">gold</param>
+                                            <param id="1" name="Value">100</param>
+                                        </action>
+                                        <action id="0" name="Set local value" sid="8034488218631661" type="WebStorage">
+                                            <param id="0" name="Key">&quot;gold&quot;</param>
+                                            <param id="1" name="Value">gold</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="702009713780457">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="4689294263745586" type="System">
+                                            <param id="0" name="Variable">gold</param>
+                                            <param id="1" name="Comparison">2</param>
+                                            <param id="2" name="Value">100</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="4336699897435408" type="System">
+                                            <param id="0" name="Variable">buygold</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="9336399808478843">
+                            <conditions>
+                                <condition id="3" name="Compare frame" sid="1822451973601928" type="jeep">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Number">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set local value" sid="7398378238009607" type="WebStorage">
+                                    <param id="0" name="Key">&quot;car&quot;</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-2" name="Go to layout" sid="3676658141767489" type="System">
+                                    <param id="0" name="Layout">Game</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="3420837393567087">
+                    <conditions>
+                        <condition id="17" name="On tap object" sid="9379597113304767" type="Touch">
+                            <param id="0" name="Object">musclecar</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="4205243888238739">
+                            <conditions>
+                                <condition id="3" name="Compare frame" sid="7542031258907262" type="musclecar">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Number">0</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="1740726056287324">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="4955601583052676" type="System">
+                                            <param id="0" name="Variable">gold</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Value">200</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Set local value" sid="3718358564793096" type="WebStorage">
+                                            <param id="0" name="Key">&quot;muscle&quot;</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="0" name="Play" sid="5264619754581344" type="Audio">
+                                            <param id="0" name="Audio file">newcar</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">-15</param>
+                                            <param id="1" name="Tag (optional)">&quot;sfx&quot;</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="3892149415414837" type="System">
+                                            <param id="0" name="Seconds">0.3</param>
+                                        </action>
+                                        <action id="5" name="Set frame" sid="1977889193527151" type="musclecar">
+                                            <param id="0" name="Frame number">1</param>
+                                        </action>
+                                        <action id="-11" name="Subtract from" sid="2357326162641773" type="System">
+                                            <param id="0" name="Variable">gold</param>
+                                            <param id="1" name="Value">200</param>
+                                        </action>
+                                        <action id="0" name="Set local value" sid="3523540321815423" type="WebStorage">
+                                            <param id="0" name="Key">&quot;gold&quot;</param>
+                                            <param id="1" name="Value">gold</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="1997754960242217">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="575282284346146" type="System">
+                                            <param id="0" name="Variable">gold</param>
+                                            <param id="1" name="Comparison">2</param>
+                                            <param id="2" name="Value">200</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="5332993561913374" type="System">
+                                            <param id="0" name="Variable">buygold</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="3791988796345888">
+                            <conditions>
+                                <condition id="3" name="Compare frame" sid="1751831237182001" type="musclecar">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Number">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set local value" sid="6880550692252152" type="WebStorage">
+                                    <param id="0" name="Key">&quot;car&quot;</param>
+                                    <param id="1" name="Value">2</param>
+                                </action>
+                                <action id="-2" name="Go to layout" sid="8489438411199516" type="System">
+                                    <param id="0" name="Layout">Game</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="8115958739526424">
+                    <conditions>
+                        <condition id="17" name="On tap object" sid="3508722846089933" type="Touch">
+                            <param id="0" name="Object">monstercar</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="8950172317951042">
+                            <conditions>
+                                <condition id="3" name="Compare frame" sid="8174159419341263" type="monstercar">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Number">0</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="2881665645642156">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="3570856829750116" type="System">
+                                            <param id="0" name="Variable">gold</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Value">500</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Set local value" sid="7106988562327522" type="WebStorage">
+                                            <param id="0" name="Key">&quot;monster&quot;</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="0" name="Play" sid="5785406061495849" type="Audio">
+                                            <param id="0" name="Audio file">newcar</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">-15</param>
+                                            <param id="1" name="Tag (optional)">&quot;sfx&quot;</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="4351789072576188" type="System">
+                                            <param id="0" name="Seconds">0.3</param>
+                                        </action>
+                                        <action id="5" name="Set frame" sid="6283764179148333" type="monstercar">
+                                            <param id="0" name="Frame number">1</param>
+                                        </action>
+                                        <action id="-11" name="Subtract from" sid="5817564118144207" type="System">
+                                            <param id="0" name="Variable">gold</param>
+                                            <param id="1" name="Value">500</param>
+                                        </action>
+                                        <action id="0" name="Set local value" sid="1113724741121215" type="WebStorage">
+                                            <param id="0" name="Key">&quot;gold&quot;</param>
+                                            <param id="1" name="Value">gold</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="1388512283621067">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="2903285268428243" type="System">
+                                            <param id="0" name="Variable">gold</param>
+                                            <param id="1" name="Comparison">2</param>
+                                            <param id="2" name="Value">500</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="3728486397593556" type="System">
+                                            <param id="0" name="Variable">buygold</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="642961732709368">
+                            <conditions>
+                                <condition id="3" name="Compare frame" sid="5970986639751567" type="monstercar">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Number">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set local value" sid="3173225658822236" type="WebStorage">
+                                    <param id="0" name="Key">&quot;car&quot;</param>
+                                    <param id="1" name="Value">3</param>
+                                </action>
+                                <action id="-2" name="Go to layout" sid="7344732925940509" type="System">
+                                    <param id="0" name="Layout">Game</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="6708096163025449">
+                    <conditions>
+                        <condition id="17" name="On tap object" sid="8855936875121162" type="Touch">
+                            <param id="0" name="Object">tank</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="8959254369172842">
+                            <conditions>
+                                <condition id="3" name="Compare frame" sid="1946892248627912" type="tank">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Number">0</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="2357537480471386">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="4036469946715794" type="System">
+                                            <param id="0" name="Variable">gold</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Value">700</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Set local value" sid="3828172284395111" type="WebStorage">
+                                            <param id="0" name="Key">&quot;tank&quot;</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="0" name="Play" sid="6316165118886145" type="Audio">
+                                            <param id="0" name="Audio file">newcar</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">-15</param>
+                                            <param id="1" name="Tag (optional)">&quot;sfx&quot;</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="6027244732088416" type="System">
+                                            <param id="0" name="Seconds">0.3</param>
+                                        </action>
+                                        <action id="5" name="Set frame" sid="3158347325491095" type="tank">
+                                            <param id="0" name="Frame number">1</param>
+                                        </action>
+                                        <action id="-11" name="Subtract from" sid="5137398813440012" type="System">
+                                            <param id="0" name="Variable">gold</param>
+                                            <param id="1" name="Value">700</param>
+                                        </action>
+                                        <action id="0" name="Set local value" sid="2316858498457265" type="WebStorage">
+                                            <param id="0" name="Key">&quot;gold&quot;</param>
+                                            <param id="1" name="Value">gold</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="3360336972853415">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="662066670793127" type="System">
+                                            <param id="0" name="Variable">gold</param>
+                                            <param id="1" name="Comparison">2</param>
+                                            <param id="2" name="Value">700</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="1832014150804007" type="System">
+                                            <param id="0" name="Variable">buygold</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="5755045925008575">
+                            <conditions>
+                                <condition id="3" name="Compare frame" sid="9529064185976455" type="tank">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Number">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set local value" sid="5694449208407473" type="WebStorage">
+                                    <param id="0" name="Key">&quot;car&quot;</param>
+                                    <param id="1" name="Value">4</param>
+                                </action>
+                                <action id="-2" name="Go to layout" sid="3886134190288385" type="System">
+                                    <param id="0" name="Layout">Game</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="5669231561111395">
+                    <conditions>
+                        <condition id="17" name="On tap object" sid="1611322107919711" type="Touch">
+                            <param id="0" name="Object">mini</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="3921757059194813">
+                            <conditions>
+                                <condition id="3" name="Compare frame" sid="981374953444286" type="mini">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Number">0</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="9244839124002379">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="8781117533083924" type="System">
+                                            <param id="0" name="Variable">gold</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Value">1000</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Set local value" sid="7100035222001187" type="WebStorage">
+                                            <param id="0" name="Key">&quot;mini&quot;</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="0" name="Play" sid="1855606986204211" type="Audio">
+                                            <param id="0" name="Audio file">newcar</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">-15</param>
+                                            <param id="1" name="Tag (optional)">&quot;sfx&quot;</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="934004665766224" type="System">
+                                            <param id="0" name="Seconds">0.3</param>
+                                        </action>
+                                        <action id="5" name="Set frame" sid="5714878207666078" type="mini">
+                                            <param id="0" name="Frame number">1</param>
+                                        </action>
+                                        <action id="-11" name="Subtract from" sid="8242891227463692" type="System">
+                                            <param id="0" name="Variable">gold</param>
+                                            <param id="1" name="Value">1000</param>
+                                        </action>
+                                        <action id="0" name="Set local value" sid="828516299589478" type="WebStorage">
+                                            <param id="0" name="Key">&quot;gold&quot;</param>
+                                            <param id="1" name="Value">gold</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="7664670785569226">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="5740016805208682" type="System">
+                                            <param id="0" name="Variable">gold</param>
+                                            <param id="1" name="Comparison">2</param>
+                                            <param id="2" name="Value">1000</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="3205602663920687" type="System">
+                                            <param id="0" name="Variable">buygold</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="4444672468690183">
+                            <conditions>
+                                <condition id="3" name="Compare frame" sid="1555453586040981" type="mini">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Number">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set local value" sid="3928677901205236" type="WebStorage">
+                                    <param id="0" name="Key">&quot;car&quot;</param>
+                                    <param id="1" name="Value">5</param>
+                                </action>
+                                <action id="-2" name="Go to layout" sid="6344196032192933" type="System">
+                                    <param id="0" name="Layout">Game</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="6744613369883658">
+                    <conditions>
+                        <condition id="17" name="On tap object" sid="5780012493072086" type="Touch">
+                            <param id="0" name="Object">cabri</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="156856077994941">
+                            <conditions>
+                                <condition id="3" name="Compare frame" sid="670190631648198" type="cabri">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Number">0</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="3681884397893884">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="1393864126298844" type="System">
+                                            <param id="0" name="Variable">gold</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Value">1500</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Set local value" sid="3635584562902764" type="WebStorage">
+                                            <param id="0" name="Key">&quot;cabri&quot;</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="0" name="Play" sid="8157244914075058" type="Audio">
+                                            <param id="0" name="Audio file">newcar</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">-15</param>
+                                            <param id="1" name="Tag (optional)">&quot;sfx&quot;</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="7433955657578684" type="System">
+                                            <param id="0" name="Seconds">0.3</param>
+                                        </action>
+                                        <action id="5" name="Set frame" sid="4124883473905616" type="cabri">
+                                            <param id="0" name="Frame number">1</param>
+                                        </action>
+                                        <action id="-11" name="Subtract from" sid="7678908900660257" type="System">
+                                            <param id="0" name="Variable">gold</param>
+                                            <param id="1" name="Value">1500</param>
+                                        </action>
+                                        <action id="0" name="Set local value" sid="2970330434907587" type="WebStorage">
+                                            <param id="0" name="Key">&quot;gold&quot;</param>
+                                            <param id="1" name="Value">gold</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="5022295377099521">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="2496520817548356" type="System">
+                                            <param id="0" name="Variable">gold</param>
+                                            <param id="1" name="Comparison">2</param>
+                                            <param id="2" name="Value">1500</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="462511550888461" type="System">
+                                            <param id="0" name="Variable">buygold</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="3916438436109423">
+                            <conditions>
+                                <condition id="3" name="Compare frame" sid="1588354999309797" type="cabri">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Number">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set local value" sid="5451585660139791" type="WebStorage">
+                                    <param id="0" name="Key">&quot;car&quot;</param>
+                                    <param id="1" name="Value">6</param>
+                                </action>
+                                <action id="-2" name="Go to layout" sid="1752272407254112" type="System">
+                                    <param id="0" name="Layout">Game</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="9789190969618051">
+                    <conditions>
+                        <condition id="17" name="On tap object" sid="2270864871130261" type="Touch">
+                            <param id="0" name="Object">hotrod</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="9872113912307817">
+                            <conditions>
+                                <condition id="3" name="Compare frame" sid="1811533712341364" type="hotrod">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Number">0</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="7046078024956243">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="4382482188874138" type="System">
+                                            <param id="0" name="Variable">gold</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Value">2000</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Set local value" sid="3801613837604676" type="WebStorage">
+                                            <param id="0" name="Key">&quot;hotrod&quot;</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="0" name="Play" sid="2357790353303708" type="Audio">
+                                            <param id="0" name="Audio file">newcar</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">-15</param>
+                                            <param id="1" name="Tag (optional)">&quot;sfx&quot;</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="704252259090527" type="System">
+                                            <param id="0" name="Seconds">0.3</param>
+                                        </action>
+                                        <action id="5" name="Set frame" sid="613990476678362" type="hotrod">
+                                            <param id="0" name="Frame number">1</param>
+                                        </action>
+                                        <action id="-11" name="Subtract from" sid="3393729022847517" type="System">
+                                            <param id="0" name="Variable">gold</param>
+                                            <param id="1" name="Value">2000</param>
+                                        </action>
+                                        <action id="0" name="Set local value" sid="5301927189056118" type="WebStorage">
+                                            <param id="0" name="Key">&quot;gold&quot;</param>
+                                            <param id="1" name="Value">gold</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="3529132168513861">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="1603545499999867" type="System">
+                                            <param id="0" name="Variable">gold</param>
+                                            <param id="1" name="Comparison">2</param>
+                                            <param id="2" name="Value">2000</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="4232182888867833" type="System">
+                                            <param id="0" name="Variable">buygold</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="4992061071175771">
+                            <conditions>
+                                <condition id="3" name="Compare frame" sid="6282382076882987" type="hotrod">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Number">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set local value" sid="2557194859717844" type="WebStorage">
+                                    <param id="0" name="Key">&quot;car&quot;</param>
+                                    <param id="1" name="Value">7</param>
+                                </action>
+                                <action id="-2" name="Go to layout" sid="8659550672195416" type="System">
+                                    <param id="0" name="Layout">Game</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="7948615802542369">
+                    <conditions>
+                        <condition id="17" name="On tap object" sid="6118341714219162" type="Touch">
+                            <param id="0" name="Object">f1</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="7647242368245763">
+                            <conditions>
+                                <condition id="3" name="Compare frame" sid="4720582388880284" type="f1">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Number">0</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="2735694066972692">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="1813904601382152" type="System">
+                                            <param id="0" name="Variable">gold</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Value">2500</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Set local value" sid="4841892878211828" type="WebStorage">
+                                            <param id="0" name="Key">&quot;f1&quot;</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="0" name="Play" sid="9055144901192065" type="Audio">
+                                            <param id="0" name="Audio file">newcar</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">-15</param>
+                                            <param id="1" name="Tag (optional)">&quot;sfx&quot;</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="277041531886808" type="System">
+                                            <param id="0" name="Seconds">0.3</param>
+                                        </action>
+                                        <action id="5" name="Set frame" sid="9332823374171921" type="f1">
+                                            <param id="0" name="Frame number">1</param>
+                                        </action>
+                                        <action id="-11" name="Subtract from" sid="2944818343682873" type="System">
+                                            <param id="0" name="Variable">gold</param>
+                                            <param id="1" name="Value">2500</param>
+                                        </action>
+                                        <action id="0" name="Set local value" sid="7716866187882459" type="WebStorage">
+                                            <param id="0" name="Key">&quot;gold&quot;</param>
+                                            <param id="1" name="Value">gold</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="1320656782323975">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="6576814223360144" type="System">
+                                            <param id="0" name="Variable">gold</param>
+                                            <param id="1" name="Comparison">2</param>
+                                            <param id="2" name="Value">2500</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="7719180130243957" type="System">
+                                            <param id="0" name="Variable">buygold</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="8564180110901543">
+                            <conditions>
+                                <condition id="3" name="Compare frame" sid="4825786587537877" type="f1">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Number">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set local value" sid="7824599771134147" type="WebStorage">
+                                    <param id="0" name="Key">&quot;car&quot;</param>
+                                    <param id="1" name="Value">8</param>
+                                </action>
+                                <action id="-2" name="Go to layout" sid="547644413688713" type="System">
+                                    <param id="0" name="Layout">Game</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="6654320425533847">
+                    <conditions>
+                        <condition id="17" name="On tap object" sid="7660692858289877" type="Touch">
+                            <param id="0" name="Object">bolid</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="1773021786204834">
+                            <conditions>
+                                <condition id="3" name="Compare frame" sid="2502522081691533" type="bolid">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Number">0</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="9856540867083764">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="8747373947349046" type="System">
+                                            <param id="0" name="Variable">gold</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Value">3000</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Set local value" sid="5218469924903215" type="WebStorage">
+                                            <param id="0" name="Key">&quot;bolid&quot;</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="0" name="Play" sid="8881533603414056" type="Audio">
+                                            <param id="0" name="Audio file">newcar</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">-15</param>
+                                            <param id="1" name="Tag (optional)">&quot;sfx&quot;</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="2520112448400794" type="System">
+                                            <param id="0" name="Seconds">0.3</param>
+                                        </action>
+                                        <action id="5" name="Set frame" sid="208669872593168" type="bolid">
+                                            <param id="0" name="Frame number">1</param>
+                                        </action>
+                                        <action id="-11" name="Subtract from" sid="5459007711845198" type="System">
+                                            <param id="0" name="Variable">gold</param>
+                                            <param id="1" name="Value">3000</param>
+                                        </action>
+                                        <action id="0" name="Set local value" sid="1035728949470635" type="WebStorage">
+                                            <param id="0" name="Key">&quot;gold&quot;</param>
+                                            <param id="1" name="Value">gold</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="7502439941262313">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="1659643307969105" type="System">
+                                            <param id="0" name="Variable">gold</param>
+                                            <param id="1" name="Comparison">2</param>
+                                            <param id="2" name="Value">3000</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="5160168814224292" type="System">
+                                            <param id="0" name="Variable">buygold</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="6689834941683739">
+                            <conditions>
+                                <condition id="3" name="Compare frame" sid="9405148281976103" type="bolid">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Number">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set local value" sid="2163339011232951" type="WebStorage">
+                                    <param id="0" name="Key">&quot;car&quot;</param>
+                                    <param id="1" name="Value">9</param>
+                                </action>
+                                <action id="-2" name="Go to layout" sid="4302866061124559" type="System">
+                                    <param id="0" name="Layout">Game</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="6927361018963205" title="Buy Gold">
+            <sub-events>
+                <event-block sid="8025191201396831">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="6686314014436731" type="System">
+                            <param id="0" name="Variable">buygold</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Set Y" sid="5638687413205474" type="buygoldbg">
+                            <param id="0" name="Y">Self.Y+(960-Self.Y)/18</param>
+                        </action>
+                        <action id="-12" name="Set group active" sid="2714034586555394" type="System">
+                            <param id="0" name="Group name">&quot;Items&quot;</param>
+                            <param id="1" name="State">0</param>
+                        </action>
+                        <action id="-16" name="Set opacity" sid="636330485292377" type="FadeInBg">
+                            <param id="0" name="Opacity">50</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="8546132050990673">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="746967577730178" type="System">
+                            <param id="0" name="Variable">buygold</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Set Y" sid="9588876896623759" type="buygoldbg">
+                            <param id="0" name="Y">Self.Y-(960+Self.Y)/18</param>
+                        </action>
+                        <action id="-16" name="Set opacity" sid="767380576067951" type="FadeInBg">
+                            <param id="0" name="Opacity">FadeInBg.Opacity-(dt*100)</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="4973261366663629" type="System">
+                            <param id="0" name="Seconds">0.6</param>
+                        </action>
+                        <action id="-12" name="Set group active" sid="8987714575440616" type="System">
+                            <param id="0" name="Group name">&quot;Items&quot;</param>
+                            <param id="1" name="State">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="1413100600957881">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="9683075807292521" type="Touch">
+                            <param id="0" name="Object">closebuygold</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="4927519383952426" type="System">
+                            <param id="0" name="Variable">buygold</param>
+                            <param id="1" name="Value">2</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="3547045603913713" type="System">
+                            <param id="0" name="Seconds">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="9414699662997714" type="System">
+                            <param id="0" name="Variable">buygold</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="9147774111365902">
+                    <conditions>
+                        <condition id="17" name="On tap object" sid="3366145844118815" type="Touch">
+                            <param id="0" name="Object">buy1000</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="260139057180624" type="System">
+                            <param id="0" name="Variable">buygold</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">2</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="8753308892042625">
+                            <conditions>
+                                <condition id="7" name="Is store available" sid="1061261518858444" type="IAP" />
+                            </conditions>
+                            <actions>
+                                <action id="1" name="Purchase product" sid="7070630266556941" type="IAP">
+                                    <param id="0" name="Product ID">&quot;1000&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="3533657693424175">
+                    <conditions>
+                        <condition id="0" name="On purchase success" sid="3189390624850873" type="IAP">
+                            <param id="0" name="Product ID">&quot;1000&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="6060988269822658" type="Audio">
+                            <param id="0" name="Audio file">coins</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;sfx&quot;</param>
+                        </action>
+                        <action id="-10" name="Add to" sid="8944420217039656" type="System">
+                            <param id="0" name="Variable">gold</param>
+                            <param id="1" name="Value">1000</param>
+                        </action>
+                        <action id="0" name="Set local value" sid="9866859045737891" type="WebStorage">
+                            <param id="0" name="Key">&quot;gold&quot;</param>
+                            <param id="1" name="Value">gold</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="6292763893147441">
+                    <conditions>
+                        <condition id="17" name="On tap object" sid="7314944934199225" type="Touch">
+                            <param id="0" name="Object">buy5000</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="4032449778559686" type="System">
+                            <param id="0" name="Variable">buygold</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">2</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="1095936748970697">
+                            <conditions>
+                                <condition id="7" name="Is store available" sid="5339984210603555" type="IAP" />
+                            </conditions>
+                            <actions>
+                                <action id="1" name="Purchase product" sid="5585654064915403" type="IAP">
+                                    <param id="0" name="Product ID">&quot;5000&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="6569699932174582">
+                    <conditions>
+                        <condition id="0" name="On purchase success" sid="9693362636216901" type="IAP">
+                            <param id="0" name="Product ID">&quot;5000&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="8453887550961518" type="Audio">
+                            <param id="0" name="Audio file">coins</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;sfx&quot;</param>
+                        </action>
+                        <action id="-10" name="Add to" sid="8510890700358686" type="System">
+                            <param id="0" name="Variable">gold</param>
+                            <param id="1" name="Value">5000</param>
+                        </action>
+                        <action id="0" name="Set local value" sid="1042511141847122" type="WebStorage">
+                            <param id="0" name="Key">&quot;gold&quot;</param>
+                            <param id="1" name="Value">gold</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="7187775560594559">
+                    <conditions>
+                        <condition id="17" name="On tap object" sid="9586522005407367" type="Touch">
+                            <param id="0" name="Object">buy10000</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="9221944928962966" type="System">
+                            <param id="0" name="Variable">buygold</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">2</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="4949657951059268">
+                            <conditions>
+                                <condition id="7" name="Is store available" sid="304914965686238" type="IAP" />
+                            </conditions>
+                            <actions>
+                                <action id="1" name="Purchase product" sid="7105537655715974" type="IAP">
+                                    <param id="0" name="Product ID">&quot;10000&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="4406664798763966">
+                    <conditions>
+                        <condition id="0" name="On purchase success" sid="991540195595156" type="IAP">
+                            <param id="0" name="Product ID">&quot;10000&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="8947908045751423" type="Audio">
+                            <param id="0" name="Audio file">coins</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;sfx&quot;</param>
+                        </action>
+                        <action id="-10" name="Add to" sid="5753828797369261" type="System">
+                            <param id="0" name="Variable">gold</param>
+                            <param id="1" name="Value">10000</param>
+                        </action>
+                        <action id="0" name="Set local value" sid="2852872430156998" type="WebStorage">
+                            <param id="0" name="Key">&quot;gold&quot;</param>
+                            <param id="1" name="Value">gold</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="2412465340740846">
+            <conditions>
+                <condition id="3" name="On touched object" sid="9918446577442312" type="Touch">
+                    <param id="0" name="Object">addcoins</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="6326476693085594" type="System">
+                    <param id="0" name="Variable">buygold</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="125137951524004">
+            <conditions>
+                <condition id="3" name="On touched object" sid="5438536795702554" type="Touch">
+                    <param id="0" name="Object">tomenu</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Go to layout" sid="9432745761803984" type="System">
+                    <param id="0" name="Layout">Menu</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="4554141519368472">
+            <conditions>
+                <condition id="11" name="On menu button" sid="1190283451685553" type="Browser" />
+            </conditions>
+            <actions>
+                <action id="1" name="Close" sid="7725749996428268" type="Browser" />
+            </actions>
+        </event-block>
+        <event-block sid="9687940319106167">
+            <conditions>
+                <condition id="-3" name="On end of layout" sid="3771360114907335" type="System" />
+            </conditions>
+            <actions>
+                <action id="33" name="Stop all" sid="9875434296124022" type="Audio" />
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

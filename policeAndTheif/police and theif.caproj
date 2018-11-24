@@ -1,0 +1,1158 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2project>
+    <name>Deadly Race</name>
+    <description>Drive fast or die</description>
+    <version>1.0</version>
+    <author>ArtHeads.Co</author>
+    <author-email>hello@artheads.co</author-email>
+    <author-website>http://artheads.co</author-website>
+    <app-id>co.artheads.deadlyrace</app-id>
+    <unique-id>2m2oqhlgof90t</unique-id>
+    <saved-with-version>25900</saved-with-version>
+    <used-plugins>
+        <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
+        <plugin author="Scirra" id="Browser" version="1">Browser</plugin>
+        <plugin author="Scirra" id="IAP" version="1">IAP</plugin>
+        <plugin author="Scirra" id="NinePatch" version="1">9-patch</plugin>
+        <plugin author="Scirra" id="Particles" version="1">Particles</plugin>
+        <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Spritefont2" version="1">Sprite font</plugin>
+        <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
+        <plugin author="Scirra" id="Touch" version="1">Touch</plugin>
+        <plugin author="Zack0Wack0/Scirra" id="WebStorage" version="1">WebStorage</plugin>
+        <plugin author="Scirra" id="admob" version="1">Admob Ads</plugin>
+        <plugin author="Scirra" id="googleplay" version="1">Google Play</plugin>
+    </used-plugins>
+    <used-behaviors>
+        <behavior author="Scirra" id="Anchor" version="1">Anchor</behavior>
+        <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
+        <behavior author="Scirra" id="DragnDrop" version="1">Drag &amp; Drop</behavior>
+        <behavior author="Scirra" id="EightDir" version="1">8 Direction</behavior>
+        <behavior author="Scirra" id="Pin" version="1">Pin</behavior>
+        <behavior author="Scirra" id="Sin" version="1">Sine</behavior>
+        <behavior author="Scirra" id="Timer" version="1">Timer</behavior>
+    </used-behaviors>
+    <used-effects>
+        <effect author="Scirra" id="setcolor">Set color</effect>
+    </used-effects>
+    <configurations>
+        <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
+    </configurations>
+    <window-size>
+        <width>1080</width>
+        <height>1920</height>
+    </window-size>
+    <pixel-rounding>0</pixel-rounding>
+    <preview-effects>1</preview-effects>
+    <first-layout>Menu</first-layout>
+    <use-loader-layout>0</use-loader-layout>
+    <configuration-settings>
+        <prop name="Clear background">Yes</prop>
+        <prop name="Enable WebGL">On</prop>
+        <prop name="Fullscreen in browser">Scale outer</prop>
+        <prop name="Fullscreen scaling">High quality</prop>
+        <prop name="Loader style">Progress bar &amp; logo</prop>
+        <prop name="Orientations">Portrait</prop>
+        <prop name="Pause on unfocus">No</prop>
+        <prop name="Physics engine">Box2D asm.js</prop>
+        <prop name="Preview browser">NW.js</prop>
+        <prop name="Sampling">Linear</prop>
+        <prop name="Use high-DPI display">Yes</prop>
+    </configuration-settings>
+    <object-folder>
+        <object-type name="RoadVillage" sid="8108224095461248">
+            <plugin id="TiledBg" />
+            <texture original-source="D:\Games\GameDesign\!_UrbanRace\sprite\village.png" />
+        </object-type>
+        <object-type name="player" sid="1068647642155474">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Turbo" sid="2151386531662576" type="boolean" />
+                <instance-variable name="TurboEnded" sid="6374844547927911" type="boolean" />
+                <instance-variable name="Left_Right" sid="1674442881509104" type="boolean" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Sine" sid="3312248841251764">
+                    <behavior id="Sin" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="street" pingpong="0" repeatcount="1" repeatto="0" sid="4835276913652834" speed="0">
+                    <frame duration="1" hotspotX="0.481481" hotspotY="0.925676" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\car_1.png" />
+                </animation>
+                <animation framecount="1" loop="0" name="muscle" pingpong="0" repeatcount="1" repeatto="0" sid="7214853724952161" speed="0">
+                    <frame duration="1" hotspotX="0.490741" hotspotY="0.888889" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\player\muscle.png" />
+                </animation>
+                <animation framecount="2" loop="1" name="monster" pingpong="0" repeatcount="1" repeatto="0" sid="8696912939877418" speed="0">
+                    <frame duration="1" hotspotX="0.462121" hotspotY="0.840909" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\player\monster.png" />
+                    <frame duration="1" hotspotX="0.462121" hotspotY="0.840909" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\player\monster2.png" />
+                </animation>
+                <animation framecount="1" loop="0" name="bolid" pingpong="0" repeatcount="1" repeatto="0" sid="727729322906542" speed="0">
+                    <frame duration="1" hotspotX="0.490741" hotspotY="0.582474" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\player\bolid.png" />
+                </animation>
+                <animation framecount="2" loop="1" name="f1" pingpong="0" repeatcount="1" repeatto="0" sid="6254916129490229" speed="0">
+                    <frame duration="1" hotspotX="0.464912" hotspotY="0.913514" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\player\f1.png" />
+                    <frame duration="1" hotspotX="0.464912" hotspotY="0.913514" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\player\f1_2.png" />
+                </animation>
+                <animation framecount="1" loop="1" name="tank" pingpong="0" repeatcount="1" repeatto="0" sid="5134023335166971" speed="0">
+                    <frame duration="1" hotspotX="0.470588" hotspotY="0.891753" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\player\tank.png" />
+                </animation>
+                <animation framecount="1" loop="0" name="cabri" pingpong="0" repeatcount="1" repeatto="0" sid="4955931576317718" speed="0">
+                    <frame duration="1" hotspotX="0.490741" hotspotY="0.888889" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\player\cabri.png" />
+                </animation>
+                <animation framecount="1" loop="0" name="hotrod" pingpong="0" repeatcount="1" repeatto="0" sid="7494660000306743" speed="0">
+                    <frame duration="1" hotspotX="0.491525" hotspotY="0.888268" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\player\hotrod.png" />
+                </animation>
+                <animation framecount="1" loop="0" name="jeep" pingpong="0" repeatcount="1" repeatto="0" sid="1428290750997837" speed="0">
+                    <frame duration="1" hotspotX="0.490741" hotspotY="0.8875" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\player\jeep.png" />
+                </animation>
+                <animation framecount="1" loop="0" name="mini" pingpong="0" repeatcount="1" repeatto="0" sid="8725938693468181" speed="0">
+                    <frame duration="1" hotspotX="0.490741" hotspotY="0.885135" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\player\mini_blue.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="enemycar" sid="8722331004735969">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="8Direction" sid="5565439309013501">
+                    <behavior id="EightDir" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="18" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="9162898903010178" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_UrbanRace\sprite\car_3.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_UrbanRace\sprite\car_2.png" />
+                    <frame duration="1" hotspotX="0.504673" hotspotY="0.5" original-source="D:\Games\GameDesign\!_UrbanRace\sprite\car_7.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_UrbanRace\sprite\car_4.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\car_5.png" />
+                    <frame duration="1" hotspotX="0.509259" hotspotY="0.506173" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\car_8.png" />
+                    <frame duration="1" hotspotX="0.509259" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\car_6.png" />
+                    <frame duration="1" hotspotX="0.507813" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\car_10.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\car_11.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\images\car_12.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\car_13.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\car_15.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\car_14.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\car_16.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\car_17.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\car_19.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.502058" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\car_9.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_UrbanRace\sprite\boiler.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="explosion" sid="1170121504723873">
+            <plugin id="Particles" />
+            <texture original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\particles\explosion_c.png" />
+        </object-type>
+        <object-type name="border" sid="3608700007143873">
+            <plugin id="TiledBg" />
+            <texture />
+        </object-type>
+        <object-type name="Touch" sid="5486655864023597">
+            <plugin id="Touch" />
+        </object-type>
+        <object-type name="spawner" sid="9582624451908119">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="busyleft" sid="9147919458973562" type="boolean" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Timer" sid="2940443162855735">
+                    <behavior id="Timer" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="1492607218527495" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Audio" sid="119736746751547">
+            <plugin id="Audio" />
+        </object-type>
+        <object-type name="PauseButton" sid="301341123885823">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Paused" sid="8086432263538776" type="boolean" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Anchor" sid="6742184477599639">
+                    <behavior id="Anchor" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="pause" pingpong="0" repeatcount="1" repeatto="0" sid="5058920720333802" speed="5">
+                    <frame duration="1" hotspotX="0.506494" hotspotY="0.506494" original-source="D:\Games\GameDesign\!_UrbanRace\sprite\pause.png" />
+                </animation>
+                <animation framecount="1" loop="0" name="play" pingpong="0" repeatcount="1" repeatto="0" sid="7151427881689963" speed="5">
+                    <frame duration="1" hotspotX="0.506494" hotspotY="0.506494" original-source="D:\Games\GameDesign\!_UrbanRace\sprite\pause_play.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="scorefont" sid="5668866309197131">
+            <plugin id="Spritefont2" />
+            <behaviors>
+                <behavior-type name="Anchor" sid="4323360050858403">
+                    <behavior id="Anchor" />
+                </behavior-type>
+            </behaviors>
+            <texture original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\sprite_font_1.png" />
+        </object-type>
+        <object-type name="distancebg" sid="7472206726201728">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Anchor" sid="2847110917314337">
+                    <behavior id="Anchor" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="9307376230460442" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="1" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\distance_bg.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="play" sid="3584711566105064">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3365031066166799" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\play.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="twitter" sid="6365107620551047">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="6031471489280647" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\twitter.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="sounds" sid="2540259742344643">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="4975169735594605" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\soundon.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\soundoff.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="WebStorage" sid="2568300512109558">
+            <plugin id="WebStorage" />
+        </object-type>
+        <object-type name="Browser" sid="4612966920764209">
+            <plugin id="Browser" />
+        </object-type>
+        <object-type name="latestdistance" sid="2569092234200747">
+            <plugin id="Spritefont2" />
+            <texture original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\bestdistance.png" />
+        </object-type>
+        <object-type name="bestdistance" sid="2059620186765743">
+            <plugin id="Spritefont2" />
+            <texture original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\bestdistance.png" />
+        </object-type>
+        <object-type name="restart" sid="77842490405028">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3612249607139509" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\restart.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="smoke" sid="8796555805265303">
+            <plugin id="Particles" />
+            <effects>
+                <effect-type name="SetColor">
+                    <effect id="setcolor" />
+                </effect-type>
+            </effects>
+            <texture original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\particles\smoke.png" />
+        </object-type>
+        <object-type name="petrol" sid="1564312281212342">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="5" loop="1" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="8252066705122216" speed="12">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\petrol.png">
+                        <collision-poly>
+                            <point x="0.1" y="0.136364" />
+                            <point x="0.9" y="0.136364" />
+                            <point x="0.9" y="0.863636" />
+                            <point x="0.1" y="0.863636" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\petrol_1.png">
+                        <collision-poly>
+                            <point x="0.1" y="0.136364" />
+                            <point x="0.9" y="0.136364" />
+                            <point x="0.9" y="0.863636" />
+                            <point x="0.1" y="0.863636" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\petrol_2.png">
+                        <collision-poly>
+                            <point x="0.1" y="0.136364" />
+                            <point x="0.9" y="0.136364" />
+                            <point x="0.9" y="0.863636" />
+                            <point x="0.1" y="0.863636" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\petrol_3.png">
+                        <collision-poly>
+                            <point x="0.1" y="0.136364" />
+                            <point x="0.9" y="0.136364" />
+                            <point x="0.9" y="0.863636" />
+                            <point x="0.1" y="0.863636" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\petrol_4.png">
+                        <collision-poly>
+                            <point x="0.1" y="0.136364" />
+                            <point x="0.9" y="0.136364" />
+                            <point x="0.9" y="0.863636" />
+                            <point x="0.1" y="0.863636" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="petrolbar" sid="5167529149347793">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Anchor" sid="296203468708384">
+                    <behavior id="Anchor" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="3" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="2643117603326695" speed="0">
+                    <frame duration="1" hotspotX="0" hotspotY="0.541667" />
+                    <frame duration="1" hotspotX="0" hotspotY="0.541667" />
+                    <frame duration="1" hotspotX="0" hotspotY="0.541667" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="turbo" sid="7299718801228022">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="6" loop="1" name="boost" pingpong="0" repeatcount="1" repeatto="0" sid="2235492804746612" speed="12">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="0.1" y="0.1" />
+                            <point x="0.9" y="0.1" />
+                            <point x="0.9" y="0.9" />
+                            <point x="0.1" y="0.9" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="0.1" y="0.1" />
+                            <point x="0.9" y="0.1" />
+                            <point x="0.9" y="0.9" />
+                            <point x="0.1" y="0.9" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="0.1" y="0.1" />
+                            <point x="0.9" y="0.1" />
+                            <point x="0.9" y="0.9" />
+                            <point x="0.1" y="0.9" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="0.1" y="0.1" />
+                            <point x="0.9" y="0.1" />
+                            <point x="0.9" y="0.9" />
+                            <point x="0.1" y="0.9" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="0.1" y="0.1" />
+                            <point x="0.9" y="0.1" />
+                            <point x="0.9" y="0.9" />
+                            <point x="0.1" y="0.9" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="0.1" y="0.1" />
+                            <point x="0.9" y="0.1" />
+                            <point x="0.9" y="0.9" />
+                            <point x="0.1" y="0.9" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="togarage" sid="6427515171753853">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="4607933272421939" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\garage.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="smokeN2O" sid="3744939638629952">
+            <plugin id="Particles" />
+            <texture original-source="D:\Games\GameDesign\!_UrbanRace\sprite\smoke_n2o.png" />
+        </object-type>
+        <object-type name="smokeN2Ored" sid="1442764054249756">
+            <plugin id="Particles" />
+            <texture original-source="D:\Games\GameDesign\!_UrbanRace\sprite\smoke_n2o_red.png" />
+        </object-type>
+        <object-type name="RoadCity" sid="8653780246678072">
+            <plugin id="TiledBg" />
+            <texture original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\roads\city.png" />
+        </object-type>
+        <object-type name="RoadBridge" sid="8356289882915204">
+            <plugin id="TiledBg" />
+            <texture original-source="D:\Games\GameDesign\!_UrbanRace\sprite\bridge.png" />
+        </object-type>
+        <object-type name="selectroad" sid="8331232032136402">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7909035147780323" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\road.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="noads" sid="371217942075773">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="2184041648828409" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\noads.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="leaderboard" sid="5900304563267476">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="8047909291289653" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\leaderboard.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="logo" sid="6334105234430625">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="6847623037042476" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\logo.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="buygoldbg" sid="2811044076683671">
+            <plugin id="NinePatch" />
+            <behaviors>
+                <behavior-type name="Pin" sid="7199101946633223">
+                    <behavior id="Pin" />
+                </behavior-type>
+            </behaviors>
+            <texture original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\buycoins_bg.png" />
+        </object-type>
+        <object-type name="petrolcountbg" sid="9225929607048056">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Anchor" sid="8285127263444019">
+                    <behavior id="Anchor" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="9432753322269758" speed="5">
+                    <frame duration="1" hotspotX="0.501916" hotspotY="0.506494" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\petrol_bg.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="FadeInBg" sid="3882820468620025">
+            <plugin id="TiledBg" />
+            <texture />
+        </object-type>
+        <object-type name="RoadDesert" sid="3430627030332376">
+            <plugin id="TiledBg" />
+            <texture original-source="D:\Games\GameDesign\!_UrbanRace\sprite\desert.png" />
+        </object-type>
+        <object-type name="explosion2" sid="2366473688908786">
+            <plugin id="Particles" />
+            <texture original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\particles\explosion_3.png" />
+        </object-type>
+        <object-type name="explosion3" sid="1655040234816891">
+            <plugin id="Particles" />
+            <texture original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\particles\explosion_2.png" />
+        </object-type>
+        <object-type name="crash" sid="4537853236722496">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="5408092744348253" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\gameover.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="explosion4" sid="8275682556607434">
+            <plugin id="Particles" />
+            <texture original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\particles\explosion_4.png" />
+        </object-type>
+        <object-type name="garagewin" sid="7914934626182953">
+            <plugin id="TiledBg" />
+            <texture />
+        </object-type>
+        <object-type name="scrollpane" sid="6753079556302901">
+            <plugin id="TiledBg" />
+            <behaviors>
+                <behavior-type name="DragDrop" sid="6393094666283083">
+                    <behavior id="DragnDrop" />
+                </behavior-type>
+            </behaviors>
+            <texture original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\itembg_3.png" />
+        </object-type>
+        <object-type name="scroller" sid="2536621143942166">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="pos" sid="5444171242857212" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Anchor" sid="9212151569365781">
+                    <behavior id="Anchor" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3955275927980279" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\garage\scroller.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="garage_panel" sid="1588757990232298">
+            <plugin id="TiledBg" />
+            <behaviors>
+                <behavior-type name="Anchor" sid="6262013993844854">
+                    <behavior id="Anchor" />
+                </behavior-type>
+            </behaviors>
+            <texture />
+        </object-type>
+        <object-type name="IAP" sid="4035274156290427">
+            <plugin id="IAP" />
+        </object-type>
+        <object-type name="AdmobAds" sid="4975018158575908">
+            <plugin id="admob" />
+        </object-type>
+        <object-type name="streetcar" sid="9846793066103761">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Pin" sid="3677195204932152">
+                    <behavior id="Pin" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="2463028047715554" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\garage\street.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="musclecar" sid="797961642205262">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="5595001521344356" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\garage\200.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\garage\muscle.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="monstercar" sid="2694951167952703">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3732208577839062" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\garage\500.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\garage\monster.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="bolid" sid="3685928066032186">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="49226074640628" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\garage\3000.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\garage\bolid.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="f1" sid="414720372040754">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="6519087792249596" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\garage\2500.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\garage\f1.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="goldfont" sid="7950317237410598">
+            <plugin id="Spritefont2" />
+            <behaviors>
+                <behavior-type name="Anchor" sid="6759319073350003">
+                    <behavior id="Anchor" />
+                </behavior-type>
+            </behaviors>
+            <texture original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\sprite_font_1.png" />
+        </object-type>
+        <object-type name="scorefont2" sid="5405269275009389">
+            <plugin id="Spritefont2" />
+            <behaviors>
+                <behavior-type name="Anchor" sid="4769123909739829">
+                    <behavior id="Anchor" />
+                </behavior-type>
+            </behaviors>
+            <texture original-source="D:\Games\GameDesign\!_UrbanRace\sprite\sprite_font_2.png" />
+        </object-type>
+        <object-type name="goldbg" sid="4372249617962481">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Anchor" sid="395808205615474">
+                    <behavior id="Anchor" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="5188560494572834" speed="5">
+                    <frame duration="1" hotspotX="0.501992" hotspotY="1" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\gold_bg.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="closebuygold" sid="6372310407728121">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="5997303061868998" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\close.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="buy1000" sid="499278841912244">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7241120076324575" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\1000.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="buy5000" sid="3618107429153676">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7114746008143872" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\5000.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="buy10000" sid="4868521423883185">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="9501569398480365" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\10000.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="facebook" sid="1954739466590946">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="1473949575870588" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\facebook.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="rateus" sid="1834197966875483">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7014155431962719" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\rate.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="tomenu" sid="3567035487025102">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Anchor" sid="6704905089870321">
+                    <behavior id="Anchor" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="536450282068503" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\menu.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="buycoins_title" sid="1966730107677829">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3890605284066998" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\buycoins.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="garage_title" sid="1915757146138877">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Anchor" sid="8171259514070246">
+                    <behavior id="Anchor" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="9568444040195187" speed="0">
+                    <frame duration="1" hotspotX="0" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\garage_title.png" />
+                    <frame duration="1" hotspotX="0" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\roads_title.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="addcoins" sid="9492588236341529">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Anchor" sid="1990279116706931">
+                    <behavior id="Anchor" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="4638148896427431" speed="5">
+                    <frame duration="1" hotspotX="0.506494" hotspotY="0.506494" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\addcoins.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="jeep" sid="2066514657010785">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="6592324641762561" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\garage\100.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\garage\jeep.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="tank" sid="616057632230392">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="1585819680255801" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\garage\700.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\garage\tank.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="mini" sid="4101652548309657">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="8467848098242165" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\garage\1000.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\garage\mini.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="hotrod" sid="946758769737785">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="1355349279885712" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\garage\2000.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\garage\hotrod.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="cabri" sid="2170997991752265">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="2" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="5873530049061308" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\garage\1500.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\garage\cabri.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="soon" sid="8675745807049916">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="6214104784562723" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\garage\soon.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="taptoplay" sid="1100088653658316">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="6" loop="1" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="1318171767835742" speed="10">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\taptoplay.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\taptoplay_2.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\taptoplay_3.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\taptoplay_4.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\taptoplay_5.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\taptoplay_6.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="swipetonext" sid="9208910400880927">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="14" loop="1" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="2173132053966752" speed="10">
+                    <frame duration="10" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\swipe.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\swipe_2.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\swipe_3.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\swipe_4.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\swipe_5.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\swipe_6.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\swipe_7.png" />
+                    <frame duration="10" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\swipe_8.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\swipe_9.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\swipe_10.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\swipe_11.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\swipe_12.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\swipe_13.png" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\swipe_14.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Continue" sid="3671079178211914">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="1318600297777766" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.502825" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\life.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="cancel" sid="857806469791596">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="5472269722395925" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.502825" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\death.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="save_title" sid="4066820284043334">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="8848482672445252" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\save_title.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="totalcoins" sid="9806872142442669">
+            <plugin id="Spritefont2" />
+            <texture original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\totalgold.png" />
+        </object-type>
+        <object-type name="best" sid="3683687835452494">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="2155715126894061" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\best.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="last" sid="2205172279046508">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="898797175327204" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\last.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="coin" sid="2491948647958407">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7571325276226635" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Games\GameDesign\!_DeadlyRace\sprite\ui\coin.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="loader" sid="4822573154408724">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="24" loop="1" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="1685043249303965" speed="15">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="bg_color" sid="6922280789241666">
+            <plugin id="TiledBg" />
+            <texture />
+        </object-type>
+        <object-type name="GooglePlay" sid="554747147362084">
+            <plugin id="googleplay" />
+        </object-type>
+        <object-type name="coins" sid="762237872399520">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Bullet" sid="856419401547100">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="419839540539137" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\user\Desktop\coin.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="buycoins222" sid="887860740206710">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="444598615598255" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="E:\construct2\project\police and thief\Deadly_Race_Package\Sprites\ui\buycoins.png">
+                        <collision-poly>
+                            <point x="0.0321429" y="0.225" />
+                            <point x="0.5" y="0.0625" />
+                            <point x="0.978571" y="0.15" />
+                            <point x="0.9625" y="0.7375" />
+                            <point x="0.5" y="0.8875" />
+                            <point x="0.0160714" y="0.8875" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="play2" sid="289907458204469">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="727925253257441" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="E:\construct2\project\police and thief\Deadly_Race_Package\Sprites\ui\play.png">
+                        <collision-poly>
+                            <point x="0.146429" y="0.146429" />
+                            <point x="0.5" y="0" />
+                            <point x="0.853571" y="0.146429" />
+                            <point x="1" y="0.5" />
+                            <point x="0.853571" y="0.853571" />
+                            <point x="0.5" y="1" />
+                            <point x="0.146429" y="0.853571" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+    </object-folder>
+    <families>
+        <family name="roads" plugin-id="TiledBg" sid="577462380641966">
+            <members>
+                <member>RoadBridge</member>
+                <member>RoadCity</member>
+                <member>RoadDesert</member>
+                <member>RoadVillage</member>
+            </members>
+            <behaviors>
+                <behavior-type name="8Direction2" sid="419854903397638">
+                    <behavior id="EightDir" />
+                </behavior-type>
+            </behaviors>
+        </family>
+        <family name="power" plugin-id="Sprite" sid="5708338792198118">
+            <members>
+                <member>petrol</member>
+                <member>turbo</member>
+            </members>
+            <behaviors>
+                <behavior-type name="Bullet2" sid="1825818650943107">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
+        </family>
+        <family name="expl" plugin-id="Particles" sid="868812170516351">
+            <members>
+                <member>explosion</member>
+                <member>explosion2</member>
+                <member>explosion3</member>
+                <member>explosion4</member>
+            </members>
+        </family>
+        <family name="items" plugin-id="Sprite" sid="6399120326615531">
+            <members>
+                <member>bolid</member>
+                <member>cabri</member>
+                <member>f1</member>
+                <member>hotrod</member>
+                <member>jeep</member>
+                <member>mini</member>
+                <member>monstercar</member>
+                <member>musclecar</member>
+                <member>soon</member>
+                <member>streetcar</member>
+                <member>tank</member>
+            </members>
+            <behaviors>
+                <behavior-type name="Pin2" sid="3636766246597616">
+                    <behavior id="Pin" />
+                </behavior-type>
+            </behaviors>
+        </family>
+        <family name="buygold" plugin-id="Sprite" sid="9494473107757483">
+            <members>
+                <member>buy1000</member>
+                <member>buy10000</member>
+                <member>buy5000</member>
+                <member>buycoins_title</member>
+                <member>cancel</member>
+                <member>closebuygold</member>
+                <member>Continue</member>
+                <member>save_title</member>
+            </members>
+            <behaviors>
+                <behavior-type name="Pin" sid="3442456464430606">
+                    <behavior id="Pin" />
+                </behavior-type>
+            </behaviors>
+        </family>
+        <family name="playreplay" plugin-id="Sprite" sid="9456559839266161">
+            <members>
+                <member>play</member>
+                <member>restart</member>
+            </members>
+            <behaviors>
+                <behavior-type name="Sine" sid="8314792602322952">
+                    <behavior id="Sin" />
+                </behavior-type>
+            </behaviors>
+        </family>
+    </families>
+    <layout-folder>
+        <layout>Game.xml</layout>
+        <layout>Menu.xml</layout>
+        <layout>GameOver.xml</layout>
+        <layout>Garage.xml</layout>
+        <layout>Roads.xml</layout>
+    </layout-folder>
+    <event-folder>
+        <event-sheet>Game Sheet.xml</event-sheet>
+        <event-sheet>Menu Sheet.xml</event-sheet>
+        <event-sheet>GameOver Sheet.xml</event-sheet>
+        <event-sheet>RoadsSheet.xml</event-sheet>
+        <event-sheet>GarageSheets.xml</event-sheet>
+    </event-folder>
+    <global-instances>
+        <global-instance type="Touch" uid="9">
+            <properties>
+                <use-mouse-input>Yes</use-mouse-input>
+            </properties>
+        </global-instance>
+        <global-instance type="Audio" uid="14">
+            <properties>
+                <timescale-audio>Off</timescale-audio>
+                <saveload>All</saveload>
+                <play-in-background>No</play-in-background>
+                <positioned-audio></positioned-audio>
+                <panning-model>HRTF</panning-model>
+                <distance-model>Inverse</distance-model>
+                <listener-z-height>600</listener-z-height>
+                <reference-distance>600</reference-distance>
+                <maximum-distance>10000</maximum-distance>
+                <roll-off-factor>1</roll-off-factor>
+            </properties>
+        </global-instance>
+        <global-instance type="WebStorage" uid="23" />
+        <global-instance type="Browser" uid="22" />
+        <global-instance type="IAP" uid="70">
+            <properties>
+                <test-mode>No</test-mode>
+                <tizen-store-settings></tizen-store-settings>
+                <item-group-id></item-group-id>
+            </properties>
+        </global-instance>
+        <global-instance type="AdmobAds" uid="89">
+            <properties>
+                <overlap>Yes</overlap>
+                <test-mode>False</test-mode>
+                <android></android>
+                <banner-id-android>ca-app-pub-9054046876260916/9874975987</banner-id-android>
+                <interstitial-id-android>ca-app-pub-9054046876260916/2351709180</interstitial-id-android>
+                <ios></ios>
+                <banner-id-ios></banner-id-ios>
+                <interstitial-id-ios></interstitial-id-ios>
+                <windows-phone></windows-phone>
+                <banner-id-wp8></banner-id-wp8>
+                <interstitial-id-wp8></interstitial-id-wp8>
+            </properties>
+        </global-instance>
+        <global-instance type="GooglePlay" uid="87">
+            <properties>
+                <application-id>1009699484865</application-id>
+                <client-id>1009699484865-pid5j3pf6i1p75ijjgj2sautrocsi46u.apps.googleusercontent.com</client-id>
+                <client-secret>zVvnA13MuYzWyhwOFPMMR7tH</client-secret>
+            </properties>
+        </global-instance>
+    </global-instances>
+    <sounds-folder>
+        <sound-folder name="bump">
+            <file name="bump.m4a" />
+            <file name="bump.ogg" />
+        </sound-folder>
+        <sound-folder name="explosion">
+            <file name="explosion.m4a" />
+            <file name="explosion.ogg" />
+        </sound-folder>
+        <sound-folder name="engine">
+            <file name="engine.m4a" />
+            <file name="engine.ogg" />
+            <file name="engine_start.m4a" />
+            <file name="engine_start.ogg" />
+            <file name="turbo.m4a" />
+            <file name="turbo.ogg" />
+            <file name="engine_c.m4a" />
+            <file name="engine_c.ogg" />
+        </sound-folder>
+        <sound-folder name="trucks">
+            <file name="truck_passing.m4a" />
+            <file name="truck_passing.ogg" />
+        </sound-folder>
+        <sound-folder name="horn">
+            <file name="horn_single.m4a" />
+            <file name="horn_single.ogg" />
+            <file name="horn.m4a" />
+            <file name="horn.ogg" />
+            <file name="newcar.m4a" />
+            <file name="newcar.ogg" />
+        </sound-folder>
+        <sound-folder name="petrol">
+            <file name="petrol.m4a" />
+            <file name="petrol.ogg" />
+            <file name="petrol_end.m4a" />
+            <file name="petrol_end.ogg" />
+        </sound-folder>
+        <sound-folder name="police">
+            <file name="acab.m4a" />
+            <file name="acab.ogg" />
+        </sound-folder>
+        <sound-folder name="fire">
+            <file name="fire.m4a" />
+            <file name="fire.ogg" />
+        </sound-folder>
+        <sound-folder name="menu">
+            <file name="menu-guitar.m4a" />
+            <file name="menu-guitar.ogg" />
+        </sound-folder>
+        <sound-folder name="level">
+            <file name="level_rock.m4a" />
+            <file name="level_rock.ogg" />
+        </sound-folder>
+        <sound-folder name="coins">
+            <file name="coins.m4a" />
+            <file name="coins.ogg" />
+        </sound-folder>
+    </sounds-folder>
+    <music-folder />
+    <files-folder>
+        <file-folder name="Icons">
+            <file name="icon-16.png" />
+            <file name="icon-32.png" />
+            <file name="icon-114.png" />
+            <file name="icon-128.png" />
+            <file name="icon-256.png" />
+            <file name="loading-logo.png" />
+        </file-folder>
+    </files-folder>
+</c2project>

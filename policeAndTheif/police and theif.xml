@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2uistate>
+    <!--This is a UI state file - its content describes the user interface settings when the project was last open.
+It is entirely optional and the project will load without it.  If you are placing the project under source control,
+you probably do not want to add any .uistate.xml files to the repository.-->
+    <configurations>
+        <active>
+            <configuration name="HTML5" />
+        </active>
+        <display name="HTML5" />
+    </configurations>
+    <open-tabs>
+        <layout active="1" order="0">Game</layout>
+        <layout order="2">Menu</layout>
+        <layout order="4">GameOver</layout>
+        <layout order="6">Roads</layout>
+        <layout order="8">Garage</layout>
+        <event-sheet order="1">Game Sheet</event-sheet>
+        <event-sheet order="3">Menu Sheet</event-sheet>
+        <event-sheet order="5">GameOver Sheet</event-sheet>
+        <event-sheet order="7">RoadsSheet</event-sheet>
+        <event-sheet order="9">GarageSheets</event-sheet>
+    </open-tabs>
+    <properties>
+        <property expanded="1" name="About" />
+        <property expanded="1" name="Project settings" />
+        <property expanded="0" name="Window Size" />
+        <property expanded="1" name="Configuration Settings" />
+    </properties>
+    <families-expanded root="1">
+        <family expanded="0" name="roads" />
+        <family expanded="0" name="power" />
+        <family expanded="0" name="expl" />
+        <family expanded="0" name="items" />
+        <family expanded="0" name="buygold" />
+        <family expanded="0" name="playreplay" />
+    </families-expanded>
+    <folders-expanded>
+        <folder expanded="1" path="object-folder/" />
+        <folder expanded="1" path="layout-folder/" />
+        <folder expanded="1" path="event-folder/" />
+        <folder expanded="0" path="file-folder/" />
+        <folder expanded="0" path="sound-folder/" />
+        <folder expanded="1" path="music-folder/" />
+        <folder expanded="1" path="file-folder/Icons/" />
+        <folder expanded="0" path="sound-folder/bump/" />
+        <folder expanded="0" path="sound-folder/explosion/" />
+        <folder expanded="0" path="sound-folder/engine/" />
+        <folder expanded="0" path="sound-folder/trucks/" />
+        <folder expanded="0" path="sound-folder/horn/" />
+        <folder expanded="0" path="sound-folder/petrol/" />
+        <folder expanded="0" path="sound-folder/police/" />
+        <folder expanded="0" path="sound-folder/fire/" />
+        <folder expanded="0" path="sound-folder/menu/" />
+        <folder expanded="0" path="sound-folder/level/" />
+        <folder expanded="0" path="sound-folder/coins/" />
+        <folder expanded="1" path="animation-folder/player/" />
+        <folder expanded="1" path="animation-folder/enemycar/" />
+        <folder expanded="1" path="animation-folder/spawner/" />
+        <folder expanded="1" path="animation-folder/PauseButton/" />
+        <folder expanded="1" path="animation-folder/distancebg/" />
+        <folder expanded="1" path="animation-folder/play/" />
+        <folder expanded="1" path="animation-folder/twitter/" />
+        <folder expanded="1" path="animation-folder/sounds/" />
+        <folder expanded="1" path="animation-folder/restart/" />
+        <folder expanded="1" path="animation-folder/petrol/" />
+        <folder expanded="1" path="animation-folder/petrolbar/" />
+        <folder expanded="1" path="animation-folder/turbo/" />
+        <folder expanded="1" path="animation-folder/togarage/" />
+        <folder expanded="1" path="animation-folder/selectroad/" />
+        <folder expanded="1" path="animation-folder/noads/" />
+        <folder expanded="1" path="animation-folder/leaderboard/" />
+        <folder expanded="1" path="animation-folder/logo/" />
+        <folder expanded="1" path="animation-folder/petrolcountbg/" />
+        <folder expanded="1" path="animation-folder/crash/" />
+        <folder expanded="1" path="animation-folder/scroller/" />
+        <folder expanded="1" path="animation-folder/streetcar/" />
+        <folder expanded="1" path="animation-folder/musclecar/" />
+        <folder expanded="1" path="animation-folder/monstercar/" />
+        <folder expanded="1" path="animation-folder/bolid/" />
+        <folder expanded="1" path="animation-folder/f1/" />
+        <folder expanded="1" path="animation-folder/goldbg/" />
+        <folder expanded="1" path="animation-folder/closebuygold/" />
+        <folder expanded="1" path="animation-folder/buy1000/" />
+        <folder expanded="1" path="animation-folder/buy5000/" />
+        <folder expanded="1" path="animation-folder/buy10000/" />
+        <folder expanded="1" path="animation-folder/facebook/" />
+        <folder expanded="1" path="animation-folder/rateus/" />
+        <folder expanded="1" path="animation-folder/tomenu/" />
+        <folder expanded="1" path="animation-folder/buycoins_title/" />
+        <folder expanded="1" path="animation-folder/garage_title/" />
+        <folder expanded="1" path="animation-folder/addcoins/" />
+        <folder expanded="1" path="animation-folder/jeep/" />
+        <folder expanded="1" path="animation-folder/tank/" />
+        <folder expanded="1" path="animation-folder/mini/" />
+        <folder expanded="1" path="animation-folder/hotrod/" />
+        <folder expanded="1" path="animation-folder/cabri/" />
+        <folder expanded="1" path="animation-folder/soon/" />
+        <folder expanded="1" path="animation-folder/taptoplay/" />
+        <folder expanded="1" path="animation-folder/swipetonext/" />
+        <folder expanded="1" path="animation-folder/Continue/" />
+        <folder expanded="1" path="animation-folder/cancel/" />
+        <folder expanded="1" path="animation-folder/save_title/" />
+        <folder expanded="1" path="animation-folder/best/" />
+        <folder expanded="1" path="animation-folder/last/" />
+        <folder expanded="1" path="animation-folder/coin/" />
+        <folder expanded="1" path="animation-folder/loader/" />
+        <folder expanded="1" path="animation-folder/coins/" />
+        <folder expanded="1" path="animation-folder/buycoins222/" />
+        <folder expanded="1" path="animation-folder/play2/" />
+    </folders-expanded>
+</c2uistate>

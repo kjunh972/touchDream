@@ -1,0 +1,1740 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Game Sheet</name>
+    <events>
+        <variable constant="0" name="bestwaypass" sid="2622868072232782" static="0" type="number">0</variable>
+        <variable constant="0" name="waypass" sid="3991575407504178" static="0" type="number">0</variable>
+        <variable constant="0" name="gold" sid="7079280381722405" static="0" type="number">0</variable>
+        <variable constant="0" name="accelerator" sid="3792938156790783" static="0" type="number">0</variable>
+        <variable constant="0" name="enemyspawn" sid="218058387032816" static="0" type="number">0.7</variable>
+        <variable constant="0" name="petrolspawn" sid="5283535640803372" static="0" type="number">8</variable>
+        <variable constant="0" name="petrolcount" sid="7168748728061297" static="0" type="number">150</variable>
+        <variable constant="0" name="turbospawn" sid="6449626247061397" static="0" type="number">11</variable>
+        <event-group description="" sid="75748976298301" title="System">
+            <sub-events>
+                <event-block sid="1699776765735947">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="5174794864886077" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-21" name="Reset global variables" sid="6185749867753665" type="System" />
+                        <action id="-16" name="Set opacity" sid="4985598645553815" type="FadeInBg">
+                            <param id="0" name="Opacity">100</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="1709026209463666" type="System">
+                            <param id="0" name="Variable">gold</param>
+                            <param id="1" name="Value">int(WebStorage.LocalValue(&quot;gold&quot;))</param>
+                        </action>
+                        <action id="0" name="Play" sid="4314455177800479" type="Audio">
+                            <param id="0" name="Audio file">level_rock</param>
+                            <param id="2" name="Loop">1</param>
+                            <param id="3" name="Volume">-15</param>
+                            <param id="1" name="Tag (optional)">&quot;sfx&quot;</param>
+                        </action>
+                        <action id="0" name="Play" sid="8274520625107972" type="Audio">
+                            <param id="0" name="Audio file">engine_start</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-10</param>
+                            <param id="1" name="Tag (optional)">&quot;enginestart&quot;</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="6849172430104236" type="enemycar" />
+                        <action id="-9" name="Destroy" sid="557496543095421" type="expl" />
+                        <action id="-9" name="Destroy" sid="7657091494193052" type="power" />
+                        <action behavior="Pin" id="0" name="Pin to object" sid="4733657964670861" type="buygold">
+                            <param id="0" name="Pin to">buygoldbg</param>
+                            <param id="1" name="Mode">1</param>
+                        </action>
+                        <action id="-12" name="Set group active" sid="3993270672561543" type="System">
+                            <param id="0" name="Group name">&quot;Collisions&quot;</param>
+                            <param id="1" name="State">1</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="755098269683070">
+                            <conditions>
+                                <condition id="-10" name="For" sid="503682498136336" type="System">
+                                    <param id="0" name="Name">&quot;i&quot;</param>
+                                    <param id="1" name="Start index">1</param>
+                                    <param id="2" name="End index">100</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                        </event-block>
+                        <event-group description="" sid="5546470140621345" title="Distance">
+                            <sub-events>
+                                <event-block sid="1163011011021446">
+                                    <conditions>
+                                        <condition id="3" name="Local key exists" sid="5827330427536056" type="WebStorage">
+                                            <param id="0" name="Key">&quot;bestway&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="3051418184298623" type="System">
+                                            <param id="0" name="Variable">bestwaypass</param>
+                                            <param id="1" name="Value">int(WebStorage.LocalValue(&quot;bestway&quot;))</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="9452094176973957">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="8505935811902558" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="8992079581107027" type="System">
+                                            <param id="0" name="Variable">bestwaypass</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-group>
+                        <event-group description="" sid="5057160714685596" title="Roads">
+                            <sub-events>
+                                <event-block sid="3283369826339894">
+                                    <conditions>
+                                        <condition id="7" name="Compare key value (as number)" sid="944210251273571" type="WebStorage">
+                                            <param id="0" name="Key">&quot;roads&quot;</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-15" name="Set visible" sid="281116282997523" type="RoadCity">
+                                            <param id="0" name="Visibility">1</param>
+                                        </action>
+                                        <action id="-15" name="Set visible" sid="6234738092780983" type="RoadVillage">
+                                            <param id="0" name="Visibility">0</param>
+                                        </action>
+                                        <action id="-15" name="Set visible" sid="7720889863250616" type="RoadBridge">
+                                            <param id="0" name="Visibility">0</param>
+                                        </action>
+                                        <action id="-15" name="Set visible" sid="1485503837845742" type="RoadDesert">
+                                            <param id="0" name="Visibility">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="4179963148830771">
+                                    <conditions>
+                                        <condition id="7" name="Compare key value (as number)" sid="1864166556803403" type="WebStorage">
+                                            <param id="0" name="Key">&quot;roads&quot;</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-15" name="Set visible" sid="6098125811566052" type="RoadVillage">
+                                            <param id="0" name="Visibility">1</param>
+                                        </action>
+                                        <action id="-15" name="Set visible" sid="8894242900061209" type="RoadCity">
+                                            <param id="0" name="Visibility">0</param>
+                                        </action>
+                                        <action id="-15" name="Set visible" sid="534486658290697" type="RoadBridge">
+                                            <param id="0" name="Visibility">0</param>
+                                        </action>
+                                        <action id="-15" name="Set visible" sid="2581322702757664" type="RoadDesert">
+                                            <param id="0" name="Visibility">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="5881000809827913">
+                                    <conditions>
+                                        <condition id="7" name="Compare key value (as number)" sid="9964443211378616" type="WebStorage">
+                                            <param id="0" name="Key">&quot;roads&quot;</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">2</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-15" name="Set visible" sid="362258014700943" type="RoadBridge">
+                                            <param id="0" name="Visibility">1</param>
+                                        </action>
+                                        <action id="-15" name="Set visible" sid="1106261638988939" type="RoadVillage">
+                                            <param id="0" name="Visibility">0</param>
+                                        </action>
+                                        <action id="-15" name="Set visible" sid="1657733162856637" type="RoadCity">
+                                            <param id="0" name="Visibility">0</param>
+                                        </action>
+                                        <action id="-15" name="Set visible" sid="1705854496915244" type="RoadDesert">
+                                            <param id="0" name="Visibility">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="2984406491310188">
+                                    <conditions>
+                                        <condition id="7" name="Compare key value (as number)" sid="8197573214517662" type="WebStorage">
+                                            <param id="0" name="Key">&quot;roads&quot;</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">3</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-15" name="Set visible" sid="1579638005849963" type="RoadDesert">
+                                            <param id="0" name="Visibility">1</param>
+                                        </action>
+                                        <action id="-15" name="Set visible" sid="4029275501234235" type="RoadBridge">
+                                            <param id="0" name="Visibility">0</param>
+                                        </action>
+                                        <action id="-15" name="Set visible" sid="4149251481424033" type="RoadVillage">
+                                            <param id="0" name="Visibility">0</param>
+                                        </action>
+                                        <action id="-15" name="Set visible" sid="3857394360019151" type="RoadCity">
+                                            <param id="0" name="Visibility">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-group>
+                        <event-group description="" sid="7015465534619201" title="Cars">
+                            <sub-events>
+                                <event-block sid="7628015633855092">
+                                    <conditions>
+                                        <condition id="7" name="Compare key value (as number)" sid="8497522760041161" type="WebStorage">
+                                            <param id="0" name="Key">&quot;car&quot;</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="1597748984053314" type="player">
+                                            <param id="0" name="Animation">&quot;street&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="3270756215981781">
+                                    <conditions>
+                                        <condition id="7" name="Compare key value (as number)" sid="4482607618508792" type="WebStorage">
+                                            <param id="0" name="Key">&quot;car&quot;</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="1199969156682065" type="player">
+                                            <param id="0" name="Animation">&quot;jeep&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="5762227616400569">
+                                    <conditions>
+                                        <condition id="7" name="Compare key value (as number)" sid="3463356949807134" type="WebStorage">
+                                            <param id="0" name="Key">&quot;car&quot;</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">2</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="9483046601826788" type="player">
+                                            <param id="0" name="Animation">&quot;muscle&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="9311309401629953">
+                                    <conditions>
+                                        <condition id="7" name="Compare key value (as number)" sid="7099780323068426" type="WebStorage">
+                                            <param id="0" name="Key">&quot;car&quot;</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">3</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="8675682976470803" type="player">
+                                            <param id="0" name="Animation">&quot;monster&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="553264566043862">
+                                    <conditions>
+                                        <condition id="7" name="Compare key value (as number)" sid="2005187522450789" type="WebStorage">
+                                            <param id="0" name="Key">&quot;car&quot;</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">4</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="9834556740177892" type="player">
+                                            <param id="0" name="Animation">&quot;tank&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="9085668394568199">
+                                    <conditions>
+                                        <condition id="7" name="Compare key value (as number)" sid="1506573088248429" type="WebStorage">
+                                            <param id="0" name="Key">&quot;car&quot;</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">5</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="1750760899173323" type="player">
+                                            <param id="0" name="Animation">&quot;mini&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="9016284534005436">
+                                    <conditions>
+                                        <condition id="7" name="Compare key value (as number)" sid="5758283280507431" type="WebStorage">
+                                            <param id="0" name="Key">&quot;car&quot;</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">6</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="8951607787519523" type="player">
+                                            <param id="0" name="Animation">&quot;cabri&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="2941013736813158">
+                                    <conditions>
+                                        <condition id="7" name="Compare key value (as number)" sid="8841978122080525" type="WebStorage">
+                                            <param id="0" name="Key">&quot;car&quot;</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">7</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="7739115717789096" type="player">
+                                            <param id="0" name="Animation">&quot;hotrod&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="4298688813278064">
+                                    <conditions>
+                                        <condition id="7" name="Compare key value (as number)" sid="2527610672371918" type="WebStorage">
+                                            <param id="0" name="Key">&quot;car&quot;</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">8</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="1227009562434479" type="player">
+                                            <param id="0" name="Animation">&quot;f1&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="6497576661880215">
+                                    <conditions>
+                                        <condition id="7" name="Compare key value (as number)" sid="9956760336013345" type="WebStorage">
+                                            <param id="0" name="Key">&quot;car&quot;</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">9</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="2198473078376235" type="player">
+                                            <param id="0" name="Animation">&quot;bolid&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-group>
+                        <event-block sid="6078363378812768">
+                            <conditions>
+                                <condition id="6" inverted="1" name="Has product" sid="7290699767754419" type="IAP">
+                                    <param id="0" name="Product ID">&quot;noads&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Show banner ad" sid="1508527936450187" type="AdmobAds">
+                                    <param id="0" name="Position">7</param>
+                                    <param id="1" name="Size">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="2926576324878989">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="7520716981760811" type="System">
+                            <param id="0" name="Variable">accelerator</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-27" name="Set effect enabled" sid="8243014506186417" type="smoke">
+                            <param id="0" name="Mode">0</param>
+                            <param id="1" name="Effect">&quot;SetColor&quot;</param>
+                        </action>
+                        <action id="4" name="Set speed" sid="1525113376990822" type="smoke">
+                            <param id="0" name="Speed">300</param>
+                        </action>
+                        <action id="1" name="Set rate" sid="8943163767347996" type="smoke">
+                            <param id="0" name="Rate">15</param>
+                        </action>
+                        <action id="18" name="Set timeout" sid="5971924112493411" type="smoke">
+                            <param id="0" name="Timeout">0.3</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="9266135487745349">
+                            <conditions>
+                                <condition id="0" name="On ended" sid="1762811137515363" type="Audio">
+                                    <param id="0" name="Tag">&quot;enginestart&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Play" sid="3430963996075466" type="Audio">
+                                    <param id="0" name="Audio file">engine_c</param>
+                                    <param id="2" name="Loop">1</param>
+                                    <param id="3" name="Volume">-17</param>
+                                    <param id="1" name="Tag (optional)">&quot;engine&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="5012209725045014">
+                    <conditions>
+                        <condition id="-2" name="Compare Y" sid="3468228019564238" type="roads">
+                            <param id="0" name="Comparison">5</param>
+                            <param id="1" name="Y co-ordinate">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Set Y" sid="1978770920024807" type="roads">
+                            <param id="0" name="Y">-1920</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="551281779674878">
+                            <conditions>
+                                <condition id="-3" name="Is on-screen" sid="2125825193909155" type="player" />
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Add to" sid="8971349514079534" type="System">
+                                    <param id="0" name="Variable">waypass</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-11" name="Subtract from" sid="6447973526937379" type="System">
+                                    <param id="0" name="Variable">petrolcount</param>
+                                    <param id="1" name="Value">2</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="9937971826178066">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="5098667218470161" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="9618004921257833" type="scorefont">
+                            <param id="0" name="Text">waypass</param>
+                        </action>
+                        <action id="0" name="Set text" sid="9782402904351047" type="goldfont">
+                            <param id="0" name="Text">gold</param>
+                        </action>
+                        <action id="-5" name="Set width" sid="3337916636158292" type="petrolbar">
+                            <param id="0" name="Width">petrolcount</param>
+                        </action>
+                        <action id="-16" name="Set opacity" sid="2182058277305097" type="FadeInBg">
+                            <param id="0" name="Opacity">FadeInBg.Opacity-(dt*100)</param>
+                        </action>
+                        <action id="-4" name="Set position to another object" sid="6193216492505954" type="smoke">
+                            <param id="0" name="Object">player</param>
+                            <param id="1" name="Image point (optional)">0</param>
+                        </action>
+                        <action id="-4" name="Set position to another object" sid="2233341759703243" type="smokeN2O">
+                            <param id="0" name="Object">player</param>
+                            <param id="1" name="Image point (optional)">0</param>
+                        </action>
+                        <action id="-4" name="Set position to another object" sid="9890445035281894" type="smokeN2Ored">
+                            <param id="0" name="Object">player</param>
+                            <param id="1" name="Image point (optional)">0</param>
+                        </action>
+                        <action id="-24" name="Move to top" sid="5274000943978137" type="player" />
+                    </actions>
+                </event-block>
+                <event-block sid="600566642717083">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="536015617578421" type="System">
+                            <param id="0" name="Interval (seconds)">3</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="966897715078907" type="System">
+                            <param id="0" name="Object to create">coins</param>
+                            <param id="1" name="Layer">&quot;UI&quot;</param>
+                            <param id="2" name="X">petrolcountbg.X + random(-550,100)</param>
+                            <param id="3" name="Y">-300</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="8056282149938983">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="9442775081910056" type="System">
+                            <param id="0" name="Variable">petrolcount</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">150</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="1763198540838159" type="petrolbar">
+                            <param id="0" name="Frame number">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="4460256610743591">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="5797325887675126" type="System">
+                            <param id="0" name="Variable">petrolcount</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">100</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="6333832718105383" type="petrolbar">
+                            <param id="0" name="Frame number">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="3938219346923591">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="2749941967435542" type="System">
+                            <param id="0" name="Variable">petrolcount</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">50</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="4270051567318775" type="petrolbar">
+                            <param id="0" name="Frame number">2</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="1924191883797162">
+                            <conditions>
+                                <condition id="-4" name="Trigger once while true" sid="5744248635396554" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Play" sid="2364079653167805" type="Audio">
+                                    <param id="0" name="Audio file">petrol_end</param>
+                                    <param id="2" name="Loop">1</param>
+                                    <param id="3" name="Volume">-15</param>
+                                    <param id="1" name="Tag (optional)">&quot;petrolend&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="4815343249473894">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="3512960171528302" type="System">
+                            <param id="0" name="Variable">petrolcount</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="9310453961127945">
+                            <conditions>
+                                <condition id="-4" name="Trigger once while true" sid="6003575060934702" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-5" name="Set width" sid="5390575951118888" type="petrolbar">
+                                    <param id="0" name="Width">1</param>
+                                </action>
+                                <action id="1" name="Set rate" sid="8023769843733064" type="smoke">
+                                    <param id="0" name="Rate">0</param>
+                                </action>
+                                <action id="1" name="Set rate" sid="8368098182540227" type="smokeN2O">
+                                    <param id="0" name="Rate">0</param>
+                                </action>
+                                <action id="1" name="Set rate" sid="8101903554063007" type="smokeN2Ored">
+                                    <param id="0" name="Rate">0</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="1123695771690326" type="System">
+                                    <param id="0" name="Variable">accelerator</param>
+                                    <param id="1" name="Value">2</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="2047661526308283" title="Spawn">
+            <sub-events>
+                <event-block sid="1542416791360911">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="3082379876576068" type="System">
+                            <param id="0" name="Interval (seconds)">enemyspawn</param>
+                        </condition>
+                        <condition behavior="8Direction2" id="1" name="Compare speed" sid="9187369356771912" type="roads">
+                            <param id="0" name="Comparison">5</param>
+                            <param id="1" name="Speed">2990</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="7085026798846393">
+                            <conditions>
+                                <condition id="-16" name="Pick random instance" sid="20273119745542" type="System">
+                                    <param id="0" name="Object">spawner</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Spawn another object" sid="8447360480374314" type="spawner">
+                                    <param id="0" name="Object">enemycar</param>
+                                    <param id="1" name="Layer">&quot;Game&quot;</param>
+                                    <param id="2" name="Image point">0</param>
+                                </action>
+                                <action id="5" name="Set frame" sid="6740517487130944" type="enemycar">
+                                    <param id="0" name="Frame number">int(random(18))</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block any="1" sid="4209830139945991">
+                    <conditions>
+                        <condition id="3" name="Compare frame" sid="5583595299809248" type="enemycar">
+                            <param id="0" name="Comparison">5</param>
+                            <param id="1" name="Number">16</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="1705125689534469">
+                            <conditions>
+                                <condition id="-2" name="Compare Y" sid="7811633317540574" type="enemycar">
+                                    <param id="0" name="Comparison">5</param>
+                                    <param id="1" name="Y co-ordinate">25</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="8295755951702959">
+                                    <conditions>
+                                        <condition id="-4" name="Trigger once while true" sid="967261787664842" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Play" sid="4261972198305256" type="Audio">
+                                            <param id="0" name="Audio file">truck_passing</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">-17</param>
+                                            <param id="1" name="Tag (optional)">&quot;sfx&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block any="1" sid="9744406290600875">
+                    <conditions>
+                        <condition id="3" name="Compare frame" sid="2790965913801168" type="enemycar">
+                            <param id="0" name="Comparison">0</param>
+                            <param id="1" name="Number">2</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="4320550798808881">
+                            <conditions>
+                                <condition id="-2" name="Compare Y" sid="7519265436160864" type="enemycar">
+                                    <param id="0" name="Comparison">5</param>
+                                    <param id="1" name="Y co-ordinate">25</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="8966551285231984">
+                                    <conditions>
+                                        <condition id="-4" name="Trigger once while true" sid="347136596307372" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Play" sid="3946337221855445" type="Audio">
+                                            <param id="0" name="Audio file">horn</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">-18</param>
+                                            <param id="1" name="Tag (optional)">&quot;sfx&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block any="1" sid="127231728996119">
+                    <conditions>
+                        <condition id="3" name="Compare frame" sid="3316212677248063" type="enemycar">
+                            <param id="0" name="Comparison">0</param>
+                            <param id="1" name="Number">4</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="5531413370440922">
+                            <conditions>
+                                <condition id="-2" name="Compare Y" sid="3649424757774111" type="enemycar">
+                                    <param id="0" name="Comparison">5</param>
+                                    <param id="1" name="Y co-ordinate">50</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="2729545710158138">
+                                    <conditions>
+                                        <condition id="-4" name="Trigger once while true" sid="3574956312876063" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Play" sid="9306751401077696" type="Audio">
+                                            <param id="0" name="Audio file">horn_single</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">-30</param>
+                                            <param id="1" name="Tag (optional)">&quot;sfx&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block any="1" sid="136912486913894">
+                    <conditions>
+                        <condition id="3" name="Compare frame" sid="3093801453190622" type="enemycar">
+                            <param id="0" name="Comparison">0</param>
+                            <param id="1" name="Number">6</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="389818017249232">
+                            <conditions>
+                                <condition id="-2" name="Compare Y" sid="559258505203867" type="enemycar">
+                                    <param id="0" name="Comparison">5</param>
+                                    <param id="1" name="Y co-ordinate">25</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="642755571389357">
+                                    <conditions>
+                                        <condition id="-4" name="Trigger once while true" sid="8002036106405566" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Play" sid="6100589877688514" type="Audio">
+                                            <param id="0" name="Audio file">acab</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">-18</param>
+                                            <param id="1" name="Tag (optional)">&quot;sfx&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block any="1" sid="1534615066651696">
+                    <conditions>
+                        <condition id="3" name="Compare frame" sid="9035425381549434" type="enemycar">
+                            <param id="0" name="Comparison">0</param>
+                            <param id="1" name="Number">7</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="104067138452319">
+                            <conditions>
+                                <condition id="-2" name="Compare Y" sid="6814247965672161" type="enemycar">
+                                    <param id="0" name="Comparison">5</param>
+                                    <param id="1" name="Y co-ordinate">25</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="4631777845488808">
+                                    <conditions>
+                                        <condition id="-4" name="Trigger once while true" sid="9241011587142188" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Play" sid="9269892356819338" type="Audio">
+                                            <param id="0" name="Audio file">fire</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">-18</param>
+                                            <param id="1" name="Tag (optional)">&quot;sfx&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="6334618083494231">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="9480536452239759" type="System">
+                            <param id="0" name="Interval (seconds)">petrolspawn</param>
+                        </condition>
+                        <condition behavior="8Direction2" id="1" name="Compare speed" sid="6112782125270051" type="roads">
+                            <param id="0" name="Comparison">5</param>
+                            <param id="1" name="Speed">2990</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="4411745733740268">
+                            <conditions>
+                                <condition id="-16" name="Pick random instance" sid="147697730733417" type="System">
+                                    <param id="0" name="Object">spawner</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Spawn another object" sid="2730728750112644" type="spawner">
+                                    <param id="0" name="Object">petrol</param>
+                                    <param id="1" name="Layer">&quot;Game&quot;</param>
+                                    <param id="2" name="Image point">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="837298775721911">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="9387859934905458" type="System">
+                            <param id="0" name="Interval (seconds)">turbospawn</param>
+                        </condition>
+                        <condition behavior="8Direction2" id="1" name="Compare speed" sid="2076410018242969" type="roads">
+                            <param id="0" name="Comparison">5</param>
+                            <param id="1" name="Speed">2990</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="7524098224272781">
+                            <conditions>
+                                <condition id="-16" name="Pick random instance" sid="1625510502255589" type="System">
+                                    <param id="0" name="Object">spawner</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Spawn another object" sid="9022068922271676" type="spawner">
+                                    <param id="0" name="Object">turbo</param>
+                                    <param id="1" name="Layer">&quot;Game&quot;</param>
+                                    <param id="2" name="Image point">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="6899966638141924" title="Player Controls">
+            <sub-events>
+                <event-block sid="4249450786175359">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="1723669544322177" type="Touch">
+                            <param id="0" name="Object">roads</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="1165199688349485" type="System">
+                            <param id="0" name="Variable">petrolcount</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">2</param>
+                        </condition>
+                        <condition id="4" inverted="1" name="Is touching object" sid="580687274166481" type="Touch">
+                            <param id="0" name="Object">PauseButton</param>
+                        </condition>
+                        <condition id="-9" name="Is visible" sid="8129651782425354" type="player" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="2205991124039335" type="System">
+                            <param id="0" name="Variable">accelerator</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-14" name="Toggle boolean" sid="2817271365354116" type="player">
+                            <param id="0" name="Instance variable">Left_Right</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="6867004602951931" type="taptoplay">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="677139631059083">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="898042839338469" type="System">
+                            <param id="0" name="Variable">accelerator</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction2" id="7" name="Simulate control" sid="4514276257095608" type="roads">
+                            <param id="0" name="Control">3</param>
+                        </action>
+                        <action behavior="8Direction2" id="4" name="Set max speed" sid="9580006699550687" type="roads">
+                            <param id="0" name="Max Speed">3000</param>
+                        </action>
+                        <action behavior="8Direction2" id="6" name="Set deceleration" sid="2100905525007071" type="roads">
+                            <param id="0" name="Deceleration">800</param>
+                        </action>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="5631371800483074" type="enemycar">
+                            <param id="0" name="Control">3</param>
+                        </action>
+                        <action behavior="Sine" id="0" name="Set active" sid="7154833457864856" type="player">
+                            <param id="0" name="State">0</param>
+                        </action>
+                        <action id="6" name="Set speed" sid="5870419064398544" type="player">
+                            <param id="0" name="Speed">30</param>
+                        </action>
+                        <action id="-27" name="Set effect enabled" sid="6582573012669091" type="smoke">
+                            <param id="0" name="Mode">0</param>
+                            <param id="1" name="Effect">&quot;SetColor&quot;</param>
+                        </action>
+                        <action id="4" name="Set speed" sid="7022559825948561" type="smoke">
+                            <param id="0" name="Speed">600</param>
+                        </action>
+                        <action id="1" name="Set rate" sid="1996001189042163" type="smoke">
+                            <param id="0" name="Rate">50</param>
+                        </action>
+                        <action id="18" name="Set timeout" sid="3054451634805842" type="smoke">
+                            <param id="0" name="Timeout">0.3</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="1432681000601409">
+                            <conditions>
+                                <condition id="-8" name="Is boolean instance variable set" sid="6030865332561267" type="player">
+                                    <param id="0" name="Instance variable">Left_Right</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-1" name="Set X" sid="1659611101062159" type="player">
+                                    <param id="0" name="X">Player.X+320*dt</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="7561730057612391">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="7574810389419892" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-1" name="Set X" sid="5344248953632999" type="player">
+                                    <param id="0" name="X">Player.X-320*dt</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block any="1" sid="5337156765102404">
+                            <conditions>
+                                <condition id="1" name="Is overlapping another object" sid="7168306287960712" type="player">
+                                    <param id="0" name="Object">border</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="985714445477747">
+                                    <conditions>
+                                        <condition id="-8" name="Is boolean instance variable set" sid="4403755100567812" type="player">
+                                            <param id="0" name="Instance variable">Left_Right</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-1" name="Set X" sid="6992396585652194" type="player">
+                                            <param id="0" name="X">Player.X-400*dt</param>
+                                        </action>
+                                        <action id="-14" name="Toggle boolean" sid="1025929526821474" type="player">
+                                            <param id="0" name="Instance variable">Left_Right</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="2967194230557043">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="9607375405372292" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-1" name="Set X" sid="5620907970903144" type="player">
+                                            <param id="0" name="X">Player.X+400*dt</param>
+                                        </action>
+                                        <action id="-14" name="Toggle boolean" sid="4157757009618469" type="player">
+                                            <param id="0" name="Instance variable">Left_Right</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="4003273166870556">
+                                    <conditions>
+                                        <condition id="-4" name="Trigger once while true" sid="1703895763377877" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Play" sid="1905783600887585" type="Audio">
+                                            <param id="0" name="Audio file">bump</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">0</param>
+                                            <param id="1" name="Tag (optional)">&quot;sfx&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="6643241390503584" title="Collisions">
+            <sub-events>
+                <event-block sid="5915092589144764">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="2059176470213227" type="player">
+                            <param id="0" name="Object">petrol</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="6926505267539258" type="System">
+                            <param id="0" name="Variable">petrolcount</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="2888446588108234" type="Audio">
+                            <param id="0" name="Audio file">petrol</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-20</param>
+                            <param id="1" name="Tag (optional)">&quot;sfx&quot;</param>
+                        </action>
+                        <action id="6" name="Stop" sid="7715818357307473" type="Audio">
+                            <param id="0" name="Tag">&quot;petrolend&quot;</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="5328767459005456" type="System">
+                            <param id="0" name="Variable">petrolcount</param>
+                            <param id="1" name="Value">150</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="343984058483674" type="petrol" />
+                    </actions>
+                </event-block>
+                <event-block sid="6861852068251808">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="2003081398246076" type="player">
+                            <param id="0" name="Object">turbo</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="9243713673744979" type="player">
+                            <param id="0" name="Instance variable">Turbo</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="8812467271138955" type="player">
+                            <param id="0" name="Instance variable">TurboEnded</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="1144182386647275" type="System">
+                            <param id="0" name="Variable">petrolcount</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">10</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="9423476242570209" type="System">
+                            <param id="0" name="Variable">accelerator</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="1416335273939007" type="Audio">
+                            <param id="0" name="Audio file">turbo</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-5</param>
+                            <param id="1" name="Tag (optional)">&quot;sfx&quot;</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="7413525222192435" type="turbo" />
+                        <action id="-13" name="Set boolean" sid="2127524269510027" type="player">
+                            <param id="0" name="Instance variable">Turbo</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="9272982067574409" type="System">
+                            <param id="0" name="Seconds">5</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="6035894418095009" type="player">
+                            <param id="0" name="Instance variable">Turbo</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="462775587905812" type="player">
+                            <param id="0" name="Instance variable">TurboEnded</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="9549641685635863" type="System">
+                            <param id="0" name="Seconds">2.0</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="3774441509584339" type="player">
+                            <param id="0" name="Instance variable">TurboEnded</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="1672718672140637">
+                    <conditions>
+                        <condition id="-8" name="Is boolean instance variable set" sid="1124654868788028" type="player">
+                            <param id="0" name="Instance variable">Turbo</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="4740101052940515" type="System">
+                            <param id="0" name="Variable">petrolcount</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">2</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="2768004143059537" type="System">
+                            <param id="0" name="Variable">accelerator</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="8449533994793989" type="System">
+                            <param id="0" name="Variable">enemyspawn</param>
+                            <param id="1" name="Value">0.4</param>
+                        </action>
+                        <action behavior="8Direction2" id="4" name="Set max speed" sid="7227739833062792" type="roads">
+                            <param id="0" name="Max Speed">5000</param>
+                        </action>
+                        <action behavior="8Direction2" id="6" name="Set deceleration" sid="7547227308019542" type="roads">
+                            <param id="0" name="Deceleration">250</param>
+                        </action>
+                        <action behavior="8Direction" id="4" name="Set max speed" sid="1813286533108075" type="enemycar">
+                            <param id="0" name="Max Speed">7000</param>
+                        </action>
+                        <action behavior="8Direction" id="5" name="Set acceleration" sid="5333630218267986" type="enemycar">
+                            <param id="0" name="Acceleration">3000</param>
+                        </action>
+                        <action behavior="Bullet2" id="0" name="Set speed" sid="5493237910367138" type="power">
+                            <param id="0" name="Speed">2400</param>
+                        </action>
+                        <action id="-27" name="Set effect enabled" sid="6991784217718533" type="smoke">
+                            <param id="0" name="Mode">1</param>
+                            <param id="1" name="Effect">&quot;SetColor&quot;</param>
+                        </action>
+                        <action id="4" name="Set speed" sid="3928112283074502" type="smoke">
+                            <param id="0" name="Speed">1200</param>
+                        </action>
+                        <action id="1" name="Set rate" sid="8248217428981807" type="smoke">
+                            <param id="0" name="Rate">130</param>
+                        </action>
+                        <action id="18" name="Set timeout" sid="6639770443899149" type="smoke">
+                            <param id="0" name="Timeout">0.5</param>
+                        </action>
+                        <action id="1" name="Set rate" sid="2836235037189016" type="smokeN2O">
+                            <param id="0" name="Rate">130</param>
+                        </action>
+                        <action id="1" name="Set rate" sid="2753377712711656" type="smokeN2Ored">
+                            <param id="0" name="Rate">130</param>
+                        </action>
+                        <action id="-2" name="Set Y" sid="2810747854779939" type="player">
+                            <param id="0" name="Y">Player.Y-70*dt</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="3054005549813255">
+                    <conditions>
+                        <condition id="-8" name="Is boolean instance variable set" sid="8987265663787336" type="player">
+                            <param id="0" name="Instance variable">TurboEnded</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="8213782698412959" type="System">
+                            <param id="0" name="Variable">petrolcount</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">2</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="9308363782612578" type="System">
+                            <param id="0" name="Variable">accelerator</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-27" name="Set effect enabled" sid="4672449650444259" type="smoke">
+                            <param id="0" name="Mode">1</param>
+                            <param id="1" name="Effect">&quot;SetColor&quot;</param>
+                        </action>
+                        <action id="4" name="Set speed" sid="7395164702341098" type="smoke">
+                            <param id="0" name="Speed">1200</param>
+                        </action>
+                        <action id="1" name="Set rate" sid="3916817726102121" type="smoke">
+                            <param id="0" name="Rate">60</param>
+                        </action>
+                        <action id="18" name="Set timeout" sid="5466504555709466" type="smoke">
+                            <param id="0" name="Timeout">0.4</param>
+                        </action>
+                        <action id="1" name="Set rate" sid="9628741455890538" type="smokeN2O">
+                            <param id="0" name="Rate">0</param>
+                        </action>
+                        <action id="1" name="Set rate" sid="6343162558236845" type="smokeN2Ored">
+                            <param id="0" name="Rate">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="6806660288177109" type="System">
+                            <param id="0" name="Variable">enemyspawn</param>
+                            <param id="1" name="Value">0.7</param>
+                        </action>
+                        <action id="-2" name="Set Y" sid="3789554487143578" type="player">
+                            <param id="0" name="Y">Player.Y+170*dt</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="9669423789193203">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="7143582870930414" type="player">
+                            <param id="0" name="Object">enemycar</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block any="1" sid="4202113717624521">
+                            <conditions>
+                                <condition id="-8" name="Is boolean instance variable set" sid="5597383272794539" type="player">
+                                    <param id="0" name="Instance variable">Turbo</param>
+                                </condition>
+                                <condition id="-8" name="Is boolean instance variable set" sid="1511921047270531" type="player">
+                                    <param id="0" name="Instance variable">TurboEnded</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Play" sid="179156356558236" type="Audio">
+                                    <param id="0" name="Audio file">explosion</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;sfx&quot;</param>
+                                </action>
+                                <action id="-9" name="Destroy" sid="2668176780911434" type="enemycar" />
+                                <action id="0" name="Spawn another object" sid="8417618688201733" type="enemycar">
+                                    <param id="0" name="Object">explosion</param>
+                                    <param id="1" name="Layer">&quot;Game&quot;</param>
+                                    <param id="2" name="Image point">0</param>
+                                </action>
+                                <action id="0" name="Spawn another object" sid="9175110714793943" type="enemycar">
+                                    <param id="0" name="Object">explosion2</param>
+                                    <param id="1" name="Layer">&quot;Game&quot;</param>
+                                    <param id="2" name="Image point">0</param>
+                                </action>
+                                <action id="0" name="Spawn another object" sid="2544305006571804" type="enemycar">
+                                    <param id="0" name="Object">explosion3</param>
+                                    <param id="1" name="Layer">&quot;Game&quot;</param>
+                                    <param id="2" name="Image point">0</param>
+                                </action>
+                                <action id="0" name="Spawn another object" sid="4316370070083582" type="enemycar">
+                                    <param id="0" name="Object">explosion4</param>
+                                    <param id="1" name="Layer">&quot;Game&quot;</param>
+                                    <param id="2" name="Image point">0</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="7170522073813145" type="System">
+                                    <param id="0" name="Variable">gold</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="7379744399138469">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="7540319508056175" type="player">
+                            <param id="0" name="Object">enemycar</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="9928976520937771" type="player">
+                            <param id="0" name="Instance variable">Turbo</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="450386551286427" type="player">
+                            <param id="0" name="Instance variable">TurboEnded</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="8597093051679648" type="Audio">
+                            <param id="0" name="Audio file">explosion</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;sfx&quot;</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="9907470542455989" type="enemycar" />
+                        <action id="0" name="Spawn another object" sid="4595445722304002" type="player">
+                            <param id="0" name="Object">explosion</param>
+                            <param id="1" name="Layer">&quot;Game&quot;</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="9066988154654843" type="player">
+                            <param id="0" name="Object">explosion2</param>
+                            <param id="1" name="Layer">&quot;Game&quot;</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="8794688537734508" type="player">
+                            <param id="0" name="Object">explosion3</param>
+                            <param id="1" name="Layer">&quot;Game&quot;</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="3640867045978941" type="player">
+                            <param id="0" name="Object">explosion4</param>
+                            <param id="1" name="Layer">&quot;Game&quot;</param>
+                            <param id="2" name="Image point">0</param>
+                        </action>
+                        <action id="12" name="Vibrate" sid="7740590287295537" type="Browser">
+                            <param id="0" name="Pattern">&quot;60,120&quot;</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="2277711331155037" type="player">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="6567593926383154">
+                    <conditions>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="7852503318924346" type="player">
+                            <param id="0" name="Instance variable">Turbo</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="7211709207221103" type="player">
+                            <param id="0" name="Instance variable">TurboEnded</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="1" name="Set rate" sid="3195304710027061" type="smokeN2O">
+                            <param id="0" name="Rate">0</param>
+                        </action>
+                        <action id="1" name="Set rate" sid="4545725841416652" type="smokeN2Ored">
+                            <param id="0" name="Rate">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="5152846254307464">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="7136633447404382" type="petrol">
+                            <param id="0" name="Object">turbo</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="4220519710242865" type="turbo" />
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="9037383411517268" title="Destroy">
+            <sub-events>
+                <event-block sid="2246390086548107">
+                    <conditions>
+                        <condition id="-9" inverted="1" name="Is visible" sid="6537257072816565" type="player" />
+                    </conditions>
+                    <actions>
+                        <action id="1" name="Set rate" sid="8671603820007679" type="smoke">
+                            <param id="0" name="Rate">0</param>
+                        </action>
+                        <action id="1" name="Set rate" sid="8538463098854526" type="smokeN2O">
+                            <param id="0" name="Rate">0</param>
+                        </action>
+                        <action id="1" name="Set rate" sid="4748101589387145" type="smokeN2Ored">
+                            <param id="0" name="Rate">0</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="6122134168897898">
+                            <conditions>
+                                <condition id="-4" name="Trigger once while true" sid="9957714898338538" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-12" name="Set group active" sid="3756034282788369" type="System">
+                                    <param id="0" name="Group name">&quot;Collisions&quot;</param>
+                                    <param id="1" name="State">0</param>
+                                </action>
+                                <action id="3" name="Preload interstitial" sid="6732079030914654" type="AdmobAds" />
+                                <action id="1" name="Set rate" sid="8514191039007362" type="smoke">
+                                    <param id="0" name="Rate">0</param>
+                                </action>
+                                <action id="1" name="Set rate" sid="1327842986881925" type="smokeN2O">
+                                    <param id="0" name="Rate">0</param>
+                                </action>
+                                <action id="1" name="Set rate" sid="509837179241832" type="smokeN2Ored">
+                                    <param id="0" name="Rate">0</param>
+                                </action>
+                                <action id="6" name="Stop" sid="5926716635506848" type="Audio">
+                                    <param id="0" name="Tag">&quot;engine&quot;</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="3877636002790585" type="System">
+                                    <param id="0" name="Seconds">2.0</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="7244606875876444" type="System">
+                                    <param id="0" name="Variable">accelerator</param>
+                                    <param id="1" name="Value">2</param>
+                                </action>
+                                <action id="0" name="Set local value" sid="3680667566219508" type="WebStorage">
+                                    <param id="0" name="Key">&quot;gold&quot;</param>
+                                    <param id="1" name="Value">gold</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="1314620400560869">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="7153436733011569" type="System">
+                                    <param id="0" name="Variable">waypass</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">bestwaypass</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set local value" sid="2516750446878495" type="WebStorage">
+                                    <param id="0" name="Key">&quot;bestway&quot;</param>
+                                    <param id="1" name="Value">waypass</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="5014476115180946">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="6279797493645533" type="System">
+                            <param id="0" name="Variable">accelerator</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction2" id="6" name="Set deceleration" sid="2408441312122873" type="roads">
+                            <param id="0" name="Deceleration">2000</param>
+                        </action>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="2295869741217355" type="enemycar">
+                            <param id="0" name="Control">2</param>
+                        </action>
+                        <action behavior="8Direction" id="5" name="Set acceleration" sid="2723182664791574" type="enemycar">
+                            <param id="0" name="Acceleration">1000</param>
+                        </action>
+                        <action id="6" name="Stop" sid="5311164032153441" type="Audio">
+                            <param id="0" name="Tag">&quot;engine&quot;</param>
+                        </action>
+                        <action id="6" name="Stop" sid="605531745287794" type="Audio">
+                            <param id="0" name="Tag">&quot;petrolend&quot;</param>
+                        </action>
+                        <action behavior="8Direction2" id="2" name="Set ignoring input" sid="5134411761327999" type="roads">
+                            <param id="0" name="Input">1</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="1264091034170684" type="player">
+                            <param id="0" name="X">player.X</param>
+                            <param id="1" name="Y">LayoutHeight/2+250</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="425131108439265">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="8042639201657809" type="System">
+                                    <param id="0" name="Variable">gold</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">10</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-2" name="Set Y" sid="6354153278926227" type="buygoldbg">
+                                    <param id="0" name="Y">Self.Y+(960-Self.Y)/18</param>
+                                </action>
+                                <action id="-16" name="Set opacity" sid="2731178140848757" type="FadeInBg">
+                                    <param id="0" name="Opacity">50</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="8469237905337813">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="8089712415846122" type="System">
+                                    <param id="0" name="Variable">gold</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Value">10</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Wait" sid="8364575765452288" type="System">
+                                    <param id="0" name="Seconds">2</param>
+                                </action>
+                                <action id="-2" name="Go to layout" sid="4119014309404436" type="System">
+                                    <param id="0" name="Layout">GameOver</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="7409528337207998">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="4020717586055978" type="System">
+                            <param id="0" name="Variable">accelerator</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">3</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-2" name="Set Y" sid="8518624103245068" type="buygoldbg">
+                            <param id="0" name="Y">Self.Y-(960+Self.Y)/18</param>
+                        </action>
+                        <action id="-16" name="Set opacity" sid="4758166701321383" type="FadeInBg">
+                            <param id="0" name="Opacity">FadeInBg.Opacity-(dt*100)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="8690890248117748">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="6676395127986112" type="Touch">
+                            <param id="0" name="Object">Continue</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="4697817318030155" type="System">
+                            <param id="0" name="Variable">accelerator</param>
+                            <param id="1" name="Value">3</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="8901191867099287" type="enemycar" />
+                    </actions>
+                    <sub-events>
+                        <event-block sid="746434598288923">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="5622871695177183" type="System">
+                                    <param id="0" name="Variable">gold</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">10</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-11" name="Subtract from" sid="3747720242066218" type="System">
+                                    <param id="0" name="Variable">gold</param>
+                                    <param id="1" name="Value">10</param>
+                                </action>
+                                <action id="0" name="Set local value" sid="7859158680029728" type="WebStorage">
+                                    <param id="0" name="Key">&quot;gold&quot;</param>
+                                    <param id="1" name="Value">gold</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="5662693971037736" type="System">
+                                    <param id="0" name="Variable">petrolcount</param>
+                                    <param id="1" name="Value">150</param>
+                                </action>
+                                <action id="0" name="Play" sid="9090081985039763" type="Audio">
+                                    <param id="0" name="Audio file">engine_c</param>
+                                    <param id="2" name="Loop">1</param>
+                                    <param id="3" name="Volume">-17</param>
+                                    <param id="1" name="Tag (optional)">&quot;engine&quot;</param>
+                                </action>
+                                <action id="1" name="Set rate" sid="8561913397888679" type="smoke">
+                                    <param id="0" name="Rate">15</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="9369668014880035" type="player">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                                <action id="6" name="Set speed" sid="8974825424157821" type="player">
+                                    <param id="0" name="Speed">0</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="902193510831964" type="System">
+                                    <param id="0" name="Seconds">0.6</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="6958035927872918" type="System">
+                                    <param id="0" name="Variable">accelerator</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action behavior="8Direction2" id="2" name="Set ignoring input" sid="1863095774032823" type="roads">
+                                    <param id="0" name="Input">0</param>
+                                </action>
+                                <action id="-12" name="Set group active" sid="8891036571444349" type="System">
+                                    <param id="0" name="Group name">&quot;Collisions&quot;</param>
+                                    <param id="1" name="State">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="7784058059900592">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="9448502535882218" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Wait" sid="2409097857462966" type="System">
+                                    <param id="0" name="Seconds">0.6</param>
+                                </action>
+                                <action id="-2" name="Go to layout" sid="5076485232224207" type="System">
+                                    <param id="0" name="Layout">GameOver</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="2648704036419077">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="6437913841784533" type="Touch">
+                            <param id="0" name="Object">cancel</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-16" name="Wait" sid="7035763738493117" type="System">
+                            <param id="0" name="Seconds">0.6</param>
+                        </action>
+                        <action id="-2" name="Go to layout" sid="3867987553348745" type="System">
+                            <param id="0" name="Layout">GameOver</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block any="1" sid="5848532915472564">
+                    <conditions>
+                        <condition id="-2" name="Compare Y" sid="1992605347545312" type="enemycar">
+                            <param id="0" name="Comparison">4</param>
+                            <param id="1" name="Y co-ordinate">ViewportBottom(&quot;Game&quot;)+200</param>
+                        </condition>
+                        <condition id="-2" name="Compare Y" sid="917132710945457" type="enemycar">
+                            <param id="0" name="Comparison">2</param>
+                            <param id="1" name="Y co-ordinate">ViewportTop(&quot;Game&quot;)-800</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="9637323693251287" type="enemycar" />
+                    </actions>
+                </event-block>
+                <event-block sid="4526399586631905">
+                    <conditions>
+                        <condition id="-2" name="Compare Y" sid="9172866869911623" type="expl">
+                            <param id="0" name="Comparison">4</param>
+                            <param id="1" name="Y co-ordinate">ViewportBottom(&quot;Game&quot;)+100</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="972038431448169" type="expl" />
+                    </actions>
+                </event-block>
+                <event-block sid="7584977126866062">
+                    <conditions>
+                        <condition id="-2" name="Compare Y" sid="3303200953197329" type="power">
+                            <param id="0" name="Comparison">4</param>
+                            <param id="1" name="Y co-ordinate">ViewportBottom(&quot;Game&quot;)+100</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="9583882822857213" type="power" />
+                    </actions>
+                </event-block>
+                <event-block sid="4015811013150141">
+                    <conditions>
+                        <condition id="-3" name="On end of layout" sid="5891987317205484" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="33" name="Stop all" sid="9531258033833309" type="Audio" />
+                        <action id="0" name="Set local value" sid="9326686120078909" type="WebStorage">
+                            <param id="0" name="Key">&quot;gold&quot;</param>
+                            <param id="1" name="Value">gold</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="4696410027010726">
+                            <conditions>
+                                <condition id="6" inverted="1" name="Has product" sid="9070155322206027" type="IAP">
+                                    <param id="0" name="Product ID">&quot;noads&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="2" name="Hide banner ad" sid="1641632970860718" type="AdmobAds" />
+                                <action id="4" name="Show interstitial" sid="1900461841862789" type="AdmobAds" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="997207037430467">
+                            <conditions>
+                                <condition id="3" name="Is signed in" sid="265992620435754" type="GooglePlay" />
+                            </conditions>
+                            <actions>
+                                <action id="3" name="Submit score" sid="213362841755652" type="GooglePlay">
+                                    <param id="0" name="Leaderboard ID">&quot;CgkIwemdtrEdEAIQAQ&quot;</param>
+                                    <param id="1" name="Score">bestwaypass</param>
+                                    <param id="2" name="Tag">&quot;bestdist&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="1975694755558772" title="Pause">
+            <sub-events>
+                <event-block sid="1346459333884203">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="7350142839932563" type="Touch">
+                            <param id="0" name="Object">PauseButton</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="2918335066284232" type="PauseButton">
+                            <param id="0" name="Instance variable">Paused</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="4028047578441311">
+                    <conditions>
+                        <condition id="-8" name="Is boolean instance variable set" sid="4447758575883102" type="PauseButton">
+                            <param id="0" name="Instance variable">Paused</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="6856327910411046" type="PauseButton">
+                            <param id="0" name="Animation">&quot;play&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="22" name="Set paused" sid="4400916916783735" type="Audio">
+                            <param id="0" name="Tag">&quot;engine&quot;</param>
+                            <param id="1" name="State">0</param>
+                        </action>
+                        <action id="22" name="Set paused" sid="7887504266704923" type="Audio">
+                            <param id="0" name="Tag">&quot;petrolend&quot;</param>
+                            <param id="1" name="State">0</param>
+                        </action>
+                        <action id="22" name="Set paused" sid="508010767548179" type="Audio">
+                            <param id="0" name="Tag">&quot;sfx&quot;</param>
+                            <param id="1" name="State">0</param>
+                        </action>
+                        <action id="-16" name="Set opacity" sid="52910042140656" type="FadeInBg">
+                            <param id="0" name="Opacity">60</param>
+                        </action>
+                        <action id="-13" name="Set time scale" sid="4592679209201328" type="System">
+                            <param id="0" name="Time scale">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="3776471996419375">
+                    <conditions>
+                        <condition id="2" name="Is playing" sid="4391647587635603" type="PauseButton">
+                            <param id="0" name="Animation">&quot;play&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="1821411497506057">
+                            <conditions>
+                                <condition id="3" name="On touched object" sid="963210599156163" type="Touch">
+                                    <param id="0" name="Object">PauseButton</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-13" name="Set time scale" sid="3426876919434577" type="System">
+                                    <param id="0" name="Time scale">1</param>
+                                </action>
+                                <action id="22" name="Set paused" sid="2693645189933942" type="Audio">
+                                    <param id="0" name="Tag">&quot;engine&quot;</param>
+                                    <param id="1" name="State">1</param>
+                                </action>
+                                <action id="22" name="Set paused" sid="1057400063609526" type="Audio">
+                                    <param id="0" name="Tag">&quot;petrolend&quot;</param>
+                                    <param id="1" name="State">1</param>
+                                </action>
+                                <action id="22" name="Set paused" sid="4903290910776704" type="Audio">
+                                    <param id="0" name="Tag">&quot;sfx&quot;</param>
+                                    <param id="1" name="State">1</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="5904098397413922" type="PauseButton">
+                                    <param id="0" name="Instance variable">Paused</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="1370719837461126" type="PauseButton">
+                                    <param id="0" name="Animation">&quot;pause&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-16" name="Set opacity" sid="9136589274332385" type="FadeInBg">
+                                    <param id="0" name="Opacity">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="243611337389661">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="490257817274977" type="player">
+                    <param id="0" name="Object">coins</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Add to" sid="853519343225436" type="System">
+                    <param id="0" name="Variable">gold</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-9" name="Destroy" sid="923046251760955" type="coins" />
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

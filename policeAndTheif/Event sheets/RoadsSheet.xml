@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>RoadsSheet</name>
+    <events>
+        <variable comment="Pages are numbered 0 to NumberPages - 1" constant="0" name="CurrentPage" sid="8613046982598265" static="0" type="number">0</variable>
+        <variable comment="Automatically set at the beginning" constant="0" name="NumberPages" sid="1013713734039395" static="0" type="number">0</variable>
+        <variable constant="0" name="PageWidth" sid="3153284253357346" static="0" type="number">1536</variable>
+        <variable comment="Minimum amount we have to swipe to change pages" constant="0" name="swipeThreshold" sid="4478001451696804" static="0" type="number">150</variable>
+        <variable constant="0" name="swipeStartX" sid="5599853532898824" static="0" type="number">0</variable>
+        <variable constant="0" name="swipeDistance" sid="2085401523110428" static="0" type="number">0</variable>
+        <event-block sid="7206537317595348">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="3483396579381013" type="System" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="16101924225747" type="System">
+                    <param id="0" name="Variable">NumberPages</param>
+                    <param id="1" name="Value">round(LayoutWidth/PageWidth)</param>
+                </action>
+                <action id="-5" name="Scroll to X" sid="5578061872997499" type="System">
+                    <param id="0" name="X">CurrentPage * PageWidth + PageWidth/2</param>
+                </action>
+                <action id="-16" name="Set opacity" sid="7036700979199805" type="FadeInBg">
+                    <param id="0" name="Opacity">100</param>
+                </action>
+                <action behavior="8Direction2" id="4" name="Set max speed" sid="5521977353416608" type="roads">
+                    <param id="0" name="Max Speed">600</param>
+                </action>
+                <action id="5" name="Set frame" sid="7105431580998726" type="garage_title">
+                    <param id="0" name="Frame number">1</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="4651760071305334">
+                    <conditions>
+                        <condition id="6" inverted="1" name="Has product" sid="1069492772621411" type="IAP">
+                            <param id="0" name="Product ID">&quot;noads&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Show banner ad" sid="6631284924246845" type="AdmobAds">
+                            <param id="0" name="Position">7</param>
+                            <param id="1" name="Size">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-group description="" sid="5042885591336174" title="swipe">
+            <sub-events>
+                <event-block sid="1192444298422824">
+                    <conditions>
+                        <condition id="0" name="On any touch start" sid="2447078209105731" type="Touch" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="4768913273578605" type="System">
+                            <param id="0" name="Variable">swipeStartX</param>
+                            <param id="1" name="Value">touch.AbsoluteX</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Main window scrolling animation here</comment>
+                <event-block sid="2014423072135957">
+                    <conditions>
+                        <condition id="2" name="Is in touch" sid="2714326821875556" type="Touch" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="9259428682996474" type="System">
+                            <param id="0" name="Variable">swipeDistance</param>
+                            <param id="1" name="Value">(swipeStartX - touch.AbsoluteX)</param>
+                        </action>
+                        <action id="-5" name="Scroll to X" sid="552702878137651" type="System">
+                            <param id="0" name="X">CurrentPage * PageWidth + PageWidth/2 + swipeDistance</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>End of swipe, finish moving the window.</comment>
+                <event-block sid="4148764299935943">
+                    <conditions>
+                        <condition id="1" name="On any touch end" sid="3640278983551248" type="Touch" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <comment>If we swiped far enough then update current page</comment>
+                        <event-block sid="7795898624224405">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="4569948366277808" type="System">
+                                    <param id="0" name="First value">abs(swipeDistance)</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Second value">swipeThreshold</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <comment>if we swiped to the right (negative) then check if current page greater than zero and subtract 1 otherwise leave it at zero</comment>
+                                <event-block sid="3193246911860548">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="1754419618410772" type="System">
+                                            <param id="0" name="Variable">swipeDistance</param>
+                                            <param id="1" name="Comparison">3</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="2611279970167279" type="System">
+                                            <param id="0" name="Variable">CurrentPage</param>
+                                            <param id="1" name="Value">CurrentPage&gt;0?CurrentPage-1:CurrentPage</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <comment>if we swiped to the left (positive) then check if current page less than highest page and add 1 otherwise leave it where it is</comment>
+                                <event-block sid="7269266910385214">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="1618408936463355" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="6747790155091708" type="System">
+                                            <param id="0" name="Variable">CurrentPage</param>
+                                            <param id="1" name="Value">CurrentPage&lt;NumberPages-1?CurrentPage+1:CurrentPage</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <comment>now scroll to current page whether it has changed or not - we are either going back to where we started or to the new current page</comment>
+                        <event-block sid="3435641022850574">
+                            <conditions />
+                            <actions>
+                                <action id="-5" name="Scroll to X" sid="4332578546261695" type="System">
+                                    <param id="0" name="X">CurrentPage * PageWidth + PageWidth/2</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="2218571113867108">
+            <conditions>
+                <condition id="-2" name="Compare Y" sid="6754742838600857" type="roads">
+                    <param id="0" name="Comparison">5</param>
+                    <param id="1" name="Y co-ordinate">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Set Y" sid="2668650481309135" type="roads">
+                    <param id="0" name="Y">-1920</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="4875508153384534">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="4859201666657069" type="System" />
+            </conditions>
+            <actions>
+                <action behavior="8Direction2" id="7" name="Simulate control" sid="1190873425469464" type="roads">
+                    <param id="0" name="Control">3</param>
+                </action>
+                <action id="-16" name="Set opacity" sid="6166331392124689" type="FadeInBg">
+                    <param id="0" name="Opacity">FadeInBg.Opacity-(dt*100)</param>
+                </action>
+                <action behavior="Pin" id="0" name="Pin to object" sid="1898662276993292" type="buygoldbg">
+                    <param id="0" name="Pin to">RoadCity</param>
+                    <param id="1" name="Mode">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block any="1" sid="6961517103189149">
+            <conditions>
+                <condition id="16" name="On hold over object" sid="6766605760328767" type="Touch">
+                    <param id="0" name="Object">RoadCity</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set local value" sid="7831874347120353" type="WebStorage">
+                    <param id="0" name="Key">&quot;roads&quot;</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="33" name="Stop all" sid="2782990384962224" type="Audio" />
+                <action id="-2" name="Go to layout" sid="6267621901622565" type="System">
+                    <param id="0" name="Layout">Game</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block any="1" sid="1599902151158453">
+            <conditions>
+                <condition id="16" name="On hold over object" sid="8828253420708794" type="Touch">
+                    <param id="0" name="Object">RoadVillage</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set local value" sid="1068760522259752" type="WebStorage">
+                    <param id="0" name="Key">&quot;roads&quot;</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="33" name="Stop all" sid="4008262537552604" type="Audio" />
+                <action id="-2" name="Go to layout" sid="1043317455142261" type="System">
+                    <param id="0" name="Layout">Game</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block any="1" sid="9028614869764612">
+            <conditions>
+                <condition id="16" name="On hold over object" sid="9128281113798976" type="Touch">
+                    <param id="0" name="Object">RoadBridge</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set local value" sid="7219367526874059" type="WebStorage">
+                    <param id="0" name="Key">&quot;roads&quot;</param>
+                    <param id="1" name="Value">2</param>
+                </action>
+                <action id="33" name="Stop all" sid="8557024754883891" type="Audio" />
+                <action id="-2" name="Go to layout" sid="6202791525546878" type="System">
+                    <param id="0" name="Layout">Game</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block any="1" sid="7822710137714477">
+            <conditions>
+                <condition id="16" name="On hold over object" sid="9629579174098929" type="Touch">
+                    <param id="0" name="Object">RoadDesert</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set local value" sid="7405162051655621" type="WebStorage">
+                    <param id="0" name="Key">&quot;roads&quot;</param>
+                    <param id="1" name="Value">3</param>
+                </action>
+                <action id="33" name="Stop all" sid="2915615904421729" type="Audio" />
+                <action id="-2" name="Go to layout" sid="6044128999861976" type="System">
+                    <param id="0" name="Layout">Game</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="3414702430696532">
+            <conditions>
+                <condition id="3" name="On touched object" sid="413169098511811" type="Touch">
+                    <param id="0" name="Object">tomenu</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Go to layout" sid="2962287312658926" type="System">
+                    <param id="0" name="Layout">Menu</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="8944525434715935">
+            <conditions>
+                <condition id="11" name="On menu button" sid="5947229366231682" type="Browser" />
+            </conditions>
+            <actions>
+                <action id="1" name="Close" sid="2337676887198382" type="Browser" />
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
